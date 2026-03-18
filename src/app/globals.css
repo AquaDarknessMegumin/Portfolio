@@ -1,26 +1,249 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-background: #faf6f1;
+  --color-foreground: #1a0a0a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --color-background: #0c0607;
+  --color-foreground: #f2e8df;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  --color-primary-300: #d4868a;
+  --color-primary-400: #b85560;
+  --color-primary-500: #8b1a2a;
+  --color-primary-600: #6b101e;
+  --color-primary-700: #4a0812;
+
+  --color-secondary-300: #f0d68a;
+  --color-secondary-400: #d4a843;
+  --color-secondary-500: #b8860b;
+
+  --color-accent-400: #e8b4b4;
+  --color-accent-500: #c97878;
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply antialiased;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================
+   Section Divider — elegant light beam
+   ============================ */
+.section-divider {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent 5%,
+      color-mix(in srgb, var(--color-secondary-500) 15%, transparent) 30%,
+      color-mix(in srgb, var(--color-secondary-400) 40%, transparent) 50%,
+      color-mix(in srgb, var(--color-secondary-500) 15%, transparent) 70%,
+      transparent 95%);
+  overflow: visible;
+}
+
+.section-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20rem;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(90deg,
+      transparent,
+      color-mix(in srgb, var(--color-secondary-400) 60%, transparent),
+      transparent);
+  filter: blur(6px);
+  z-index: 1;
+}
+
+.section-divider::after {
+  content: "◆";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8px;
+  color: var(--color-secondary-400);
+  text-shadow: 0 0 12px color-mix(in srgb, var(--color-secondary-400) 60%, transparent);
+  z-index: 2;
+  line-height: 1;
+}
+
+/* ============================
+   Glass Card — refined luxury
+   ============================ */
+.glass-card {
+  background: linear-gradient(145deg,
+      color-mix(in srgb, var(--color-foreground) 4%, transparent),
+      color-mix(in srgb, var(--color-foreground) 1%, transparent));
+  border: 1px solid color-mix(in srgb, var(--color-foreground) 8%, transparent);
+  backdrop-filter: blur(20px) saturate(1.6);
+  border-radius: 1.25rem;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: linear-gradient(145deg,
+      color-mix(in srgb, var(--color-primary-500) 6%, transparent),
+      color-mix(in srgb, var(--color-secondary-500) 4%, transparent));
+  border-color: color-mix(in srgb, var(--color-secondary-400) 25%, transparent);
+  box-shadow:
+    0 8px 40px color-mix(in srgb, var(--color-primary-500) 8%, transparent),
+    0 2px 16px color-mix(in srgb, var(--color-secondary-500) 6%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--color-secondary-400) 10%, transparent);
+  transform: translateY(-4px);
+}
+
+/* ============================
+   Gradient Text — gold-maroon shimmer
+   ============================ */
+.gradient-text {
+  background: linear-gradient(135deg,
+      var(--color-secondary-400),
+      var(--color-primary-400),
+      var(--color-secondary-300));
+  background-size: 200% 200%;
+  animation: gradient-shift 5s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes gradient-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ============================
+   Glow effects — warm luxury glows
+   ============================ */
+.glow-hover:hover {
+  box-shadow:
+    0 0 25px color-mix(in srgb, var(--color-primary-500) 25%, transparent),
+    0 0 60px color-mix(in srgb, var(--color-secondary-500) 12%, transparent);
+}
+
+.glow-primary {
+  box-shadow:
+    0 0 15px color-mix(in srgb, var(--color-primary-500) 15%, transparent),
+    0 0 40px color-mix(in srgb, var(--color-secondary-500) 6%, transparent);
+}
+
+/* ============================
+   Dot grid — refined spacing
+   ============================ */
+.dot-grid {
+  background-image: radial-gradient(circle at 1px 1px,
+      color-mix(in srgb, var(--color-secondary-500) 6%, transparent) 1px,
+      transparent 0);
+  background-size: 48px 48px;
+}
+
+/* ============================
+   Scrollbar — golden accent
+   ============================ */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+      var(--color-primary-500),
+      var(--color-secondary-500));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary-400);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-secondary-400) 30%, transparent);
+  color: var(--color-foreground);
+}
+
+/* ============================
+   Shimmer / Pulse
+   ============================ */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg,
+      transparent,
+      color-mix(in srgb, var(--color-secondary-400) 15%, transparent),
+      transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ============================
+   Elegant line accents
+   ============================ */
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--color-secondary-400),
+      transparent);
+  opacity: 0.4;
 }
