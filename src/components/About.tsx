@@ -2,47 +2,43 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Code2, Layers, Palette, Lightbulb } from "lucide-react";
+import { Code2, Layers, Palette, Lightbulb, MapPin, Mail, Phone } from "lucide-react";
 import { ReactNode } from "react";
 
 export function About() {
-    const cards: { title: string; description: string; icon: ReactNode; gradient: string }[] = [
+    const cards: { title: string; description: string; icon: ReactNode; colSpan: string }[] = [
         {
             title: "Frontend Engineering",
             description: "Building responsive, accessible, and performant user interfaces with modern frameworks.",
-            icon: <Code2 size={22} />,
-            gradient: "from-primary-500 to-secondary-500",
+            icon: <Code2 size={24} className="text-primary-400" />,
+            colSpan: "lg:col-span-1",
         },
         {
             title: "Backend Integration",
             description: "Connecting interfaces to robust APIs and database architectures for seamless data flow.",
-            icon: <Layers size={22} />,
-            gradient: "from-secondary-500 to-primary-500",
+            icon: <Layers size={24} className="text-primary-400" />,
+            colSpan: "lg:col-span-1",
         },
         {
             title: "UI/UX Design",
             description: "Crafting intuitive and aesthetically pleasing user experiences with attention to detail.",
-            icon: <Palette size={22} />,
-            gradient: "from-primary-400 to-accent-500",
+            icon: <Palette size={24} className="text-primary-400" />,
+            colSpan: "lg:col-span-1",
         },
         {
             title: "Problem Solving",
-            description: "Analyzing complex challenges and engineering optimal, highly robust scalable solutions.",
-            icon: <Lightbulb size={22} />,
-            gradient: "from-accent-500 to-primary-500",
+            description: "Analyzing complex challenges and engineering optimal, robust scalable solutions.",
+            icon: <Lightbulb size={24} className="text-primary-400" />,
+            colSpan: "lg:col-span-1",
         }
     ];
 
     return (
-        <section id="about" className="py-32 relative overflow-hidden bg-background">
+        <section id="about" className="pt-32 pb-24 relative overflow-hidden bg-background">
             <div className="section-divider absolute top-0 left-0 right-0" />
 
-            {/* Subtle dot grid */}
-            <div className="absolute inset-0 dot-grid opacity-20 pointer-events-none" />
-
-            {/* Ambient glow */}
-            <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-primary-500/8 rounded-full blur-[150px] pointer-events-none" />
-            <div className="absolute bottom-[10%] left-[-5%] w-[400px] h-[400px] bg-secondary-500/6 rounded-full blur-[120px] pointer-events-none" />
+            {/* Subtle glow grid background */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,theme(colors.foreground/2%)_0%,transparent_100%)] pointer-events-none" />
 
             <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
                 <motion.div
@@ -50,104 +46,144 @@ export function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="mb-20 text-center"
+                    className="mb-16 text-center"
                 >
-                    <h2 className="text-4xl md:text-6xl font-serif font-light mb-4 tracking-wide text-foreground">
-                        About <span className="gradient-text italic">Me</span>
+                    <h2 className="text-4xl md:text-6xl font-serif font-medium tracking-tighter mb-4 text-foreground">
+                        About <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600">Me</span>
                     </h2>
-                    <p className="text-foreground/50 text-sm md:text-base max-w-lg mx-auto">
-                        Passionate about turning ideas into pixel-perfect, performant realities.
+                    <p className="text-foreground/50 text-sm md:text-base max-w-lg mx-auto font-light">
+                        Turning ideas into pixel-perfect, performant realities through modern web engineering.
                     </p>
                 </motion.div>
 
-                <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-start mb-24">
-                    {/* Profile Image with animated border */}
+                {/* Main Bento Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 auto-rows-[minmax(180px,auto)]">
+                    
+                    {/* Profile Image Card */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: false }}
-                        transition={{ duration: 1 }}
-                        className="w-full max-w-sm relative aspect-[4/5] mx-auto lg:mx-0 group"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="glass-card col-span-1 md:col-span-1 lg:col-span-1 lg:row-span-2 relative overflow-hidden p-0 group min-h-[300px]"
                     >
-                        {/* Animated gradient ring */}
-                        <div className="absolute -inset-1 bg-gradient-to-br from-primary-500 via-secondary-400 to-primary-400 rounded-2xl opacity-50 group-hover:opacity-80 blur-md transition-all duration-700" />
-                        <div className="absolute -inset-[1px] bg-gradient-to-br from-primary-500 via-secondary-400 to-primary-400 rounded-2xl opacity-60" />
-                        <div className="relative h-full w-full rounded-2xl overflow-hidden bg-background">
+                        <div className="absolute inset-0 w-full h-full">
                             <Image
-                                src="/ProfilePicture.jpg"
+                                src="/ProfilePicture.png"
                                 alt="Shawn Ryan Nacario"
                                 fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                className="object-cover group-hover:scale-105 group-hover:rotate-1 transition-transform duration-700 ease-out"
                             />
-                            {/* Overlay gradient */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+                            {/* Inner gradient overlay for dark mode fusion */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                        </div>
+                        <div className="absolute bottom-6 left-6 right-6">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-background/50 backdrop-blur-md border border-foreground/10 text-xs font-medium text-foreground">
+                                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> Available for work
+                            </div>
                         </div>
                     </motion.div>
 
-                    {/* Bio */}
+                    {/* Main Bio Card */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="flex-1 lg:pt-4"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="glass-card col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-1 p-8 md:p-10 flex flex-col justify-center"
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full border border-primary-500/25 bg-primary-500/10 backdrop-blur-sm text-primary-400 text-xs font-medium tracking-wider uppercase">
-                            <span className="w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse" />
-                            Who I Am
+                        <p className="text-primary-500 text-xs font-bold tracking-widest uppercase mb-4">Software Engineer</p>
+                        <h3 className="text-2xl md:text-3xl font-serif font-medium mb-4 text-foreground leading-snug tracking-tight">
+                            I am a dedicated IT student bridging the gap between complex problems and elegant solutions.
+                        </h3>
+                        <p className="text-foreground/60 text-sm md:text-base leading-relaxed font-light">
+                            My academic journey at the University of San Carlos is complemented by a strong continuous drive 
+                            to learn modern technologies and build beautifully engineered applications.
+                        </p>
+                    </motion.div>
+
+                    {/* Quick Info / Location Card */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="glass-card col-span-1 md:col-span-1 lg:col-span-1 p-8 flex flex-col items-center justify-center text-center group"
+                    >
+                        <div className="w-12 h-12 rounded-full bg-foreground/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <MapPin className="text-foreground" size={20} />
+                        </div>
+                        <h4 className="text-foreground font-medium mb-1">Cebu, Philippines</h4>
+                        <p className="text-foreground/50 text-sm font-light">Lapu-Lapu City</p>
+                    </motion.div>
+
+                    {/* Contact Card (Merged Email & Phone) */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="glass-card col-span-1 md:col-span-2 lg:col-span-2 p-6 md:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-center gap-6 sm:gap-12 hover:bg-foreground/[0.02] transition-colors"
+                    >
+                        {/* Email */}
+                        <div 
+                            className="flex items-center gap-4 cursor-pointer group w-full"
+                            onClick={() => window.location.href = 'mailto:shawnryannacario@gmail.com'}
+                        >
+                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-foreground/5 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-primary-500/10 transition-all duration-300">
+                                <Mail className="text-primary-400" size={18} />
+                            </div>
+                            <div className="overflow-hidden">
+                                <p className="text-xs text-foreground/50 uppercase tracking-widest font-semibold mb-1">Email</p>
+                                <p className="text-sm md:text-base font-medium text-foreground truncate group-hover:text-primary-400 transition-colors">shawnryannacario@gmail.com</p>
+                            </div>
                         </div>
 
-                        <h3 className="text-3xl md:text-4xl font-serif font-light mb-3 leading-tight text-foreground">
-                            Information Technology Student
-                        </h3>
-                        <p className="text-foreground/40 text-sm tracking-[0.15em] uppercase mb-8">@ University of San Carlos</p>
+                        {/* Divider for desktop */}
+                        <div className="hidden sm:block w-px h-12 bg-foreground/10 shrink-0"></div>
 
-                        <p className="text-base md:text-lg text-foreground/60 leading-relaxed mb-10 font-light max-w-2xl">
-                            I am Shawn Ryan C. Nacario, a dedicated IT student deeply passionate about software development.
-                            I constantly bridge the gap between complex technical problems and elegant, user-centric solutions.
-                            My academic journey is complemented by a strong drive to learn modern web technologies
-                            and build impactful, beautifully engineered applications.
-                        </p>
-
-                        {/* Contact Details in glass cards */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl">
-                            {[
-                                { label: "Email", value: "shawnryannacario@gmail.com" },
-                                { label: "Phone", value: "0927 223 2334" },
-                                { label: "Location", value: "Lapu-Lapu, Cebu" },
-                            ].map((info, i) => (
-                                <div key={i} className="glass-card p-4 text-center group cursor-default">
-                                    <span className="text-[10px] tracking-[0.2em] uppercase text-primary-400 block mb-1">{info.label}</span>
-                                    <span className="text-xs text-foreground/70 font-light">{info.value}</span>
-                                </div>
-                            ))}
+                        {/* Phone */}
+                        <div className="flex items-center gap-4 group w-full">
+                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-foreground/5 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-primary-500/10 transition-all duration-300">
+                                <Phone className="text-primary-400" size={18} />
+                            </div>
+                            <div className="overflow-hidden">
+                                <p className="text-xs text-foreground/50 uppercase tracking-widest font-semibold mb-1">Phone</p>
+                                <p className="text-sm md:text-base font-medium text-foreground truncate group-hover:text-primary-400 transition-colors">0927 223 2334</p>
+                            </div>
                         </div>
                     </motion.div>
-                </div>
 
-                {/* Competency Bento Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.5 }}
+                        className="glass-card col-span-1 md:col-span-2 lg:col-span-1 p-6 flex flex-col justify-center items-center text-center"
+                    >
+                         <p className="text-4xl font-serif font-medium text-foreground mb-1 tracking-tighter">3+</p>
+                         <p className="text-xs text-foreground/50 uppercase tracking-widest font-medium">Years coding</p>
+                    </motion.div>
+
+                    {/* Competency Cards */}
                     {cards.map((card, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 25 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="glass-card p-6 group cursor-default relative overflow-hidden"
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.2 + (index * 0.1) }}
+                            className={`glass-card p-6 md:p-8 flex flex-col group ${card.colSpan}`}
                         >
-                            {/* Gradient accent line */}
-                            <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${card.gradient} opacity-40 group-hover:opacity-100 transition-opacity duration-500`} />
-
-                            {/* Icon */}
-                            <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${card.gradient} flex items-center justify-center text-white mb-5 opacity-80 group-hover:opacity-100 transition-opacity group-hover:scale-110 transform duration-300`}>
+                            <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary-500/10 transition-all duration-300">
                                 {card.icon}
                             </div>
-
-                            <h4 className="text-base font-semibold mb-2 text-foreground group-hover:text-primary-400 transition-colors">
+                            <h4 className="text-lg font-medium mb-3 text-foreground tracking-tight group-hover:text-primary-400 transition-colors">
                                 {card.title}
                             </h4>
-                            <p className="text-foreground/45 text-sm font-light leading-relaxed">{card.description}</p>
+                            <p className="text-foreground/50 text-sm font-light leading-relaxed mt-auto">
+                                {card.description}
+                            </p>
                         </motion.div>
                     ))}
                 </div>

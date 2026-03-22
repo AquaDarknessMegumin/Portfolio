@@ -47,13 +47,6 @@ export function Skills() {
         <section id="skills" className="py-32 relative overflow-hidden">
             <div className="section-divider absolute top-0 left-0 right-0" />
 
-            {/* Dot grid background */}
-            <div className="absolute inset-0 dot-grid opacity-15 pointer-events-none" />
-
-            {/* Ambient glows */}
-            <div className="absolute top-[30%] left-[-8%] w-[450px] h-[450px] bg-primary-500/10 rounded-full blur-[130px] pointer-events-none" />
-            <div className="absolute bottom-[20%] right-[-5%] w-[400px] h-[400px] bg-secondary-500/8 rounded-full blur-[120px] pointer-events-none" />
-
             <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -62,8 +55,8 @@ export function Skills() {
                     transition={{ duration: 0.8 }}
                     className="mb-20 text-center"
                 >
-                    <h2 className="text-4xl md:text-5xl font-serif font-light text-foreground mb-4">
-                        Technical <span className="gradient-text italic">Skills</span>
+                    <h2 className="text-4xl md:text-5xl font-serif font-medium tracking-tighter text-foreground mb-4">
+                        Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600">Skills</span>
                     </h2>
                     <p className="max-w-lg mx-auto text-sm md:text-base text-foreground/50 font-light leading-relaxed">
                         Technologies I use to bring ideas to life — from frontend polish to backend power.
@@ -76,12 +69,12 @@ export function Skills() {
                             key={idx}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false }}
+                            viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: idx * 0.1 }}
                             className="relative"
                         >
-                            <h3 className="text-xs font-sans tracking-[0.25em] uppercase text-primary-400 mb-6 flex items-center gap-3">
-                                <span className="w-8 h-[1px] bg-gradient-to-r from-primary-500 to-transparent" />
+                            <h3 className="text-xs font-serif tracking-widest uppercase text-primary-500 mb-6 flex items-center gap-3 font-semibold">
+                                <span className="w-8 h-[2px] bg-primary-500" />
                                 {category.title}
                             </h3>
 
@@ -107,13 +100,12 @@ export function Skills() {
                                             className="flex flex-col items-center justify-center gap-3 group cursor-default"
                                         >
                                             <div className="w-20 h-20 rounded-2xl glass-card flex items-center justify-center relative overflow-hidden">
-                                                {/* Inner glow on hover */}
-                                                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/0 to-secondary-500/0 group-hover:from-primary-500/10 group-hover:to-secondary-500/10 transition-all duration-500" />
+                                                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-all duration-500" />
                                                 <div className="relative z-10 group-hover:scale-110 transition-transform duration-300">
                                                     {skill.icon}
                                                 </div>
                                             </div>
-                                            <span className="text-[11px] tracking-widest text-foreground/35 group-hover:text-primary-400 transition-colors uppercase font-medium">
+                                            <span className="text-[11px] tracking-widest text-foreground/35 group-hover:text-foreground/80 transition-colors uppercase font-medium">
                                                 {skill.name}
                                             </span>
                                         </div>

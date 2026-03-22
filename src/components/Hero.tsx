@@ -33,7 +33,7 @@ function AnimatedCounter({ value }: { value: number }) {
     }, [motionValue, value, hasAnimated]);
 
     return (
-        <span ref={ref} className="text-3xl md:text-4xl font-serif font-light gradient-text">
+        <span ref={ref} className="text-4xl md:text-5xl font-serif font-medium tracking-tighter text-foreground">
             <motion.span>{rounded}</motion.span>+
         </span>
     );
@@ -46,62 +46,45 @@ export function Hero() {
             {/* Dot grid pattern */}
             <div className="absolute inset-0 dot-grid opacity-20 z-0" />
 
-            {/* Warm ambient gradient orbs */}
-            <div className="absolute inset-0 z-[1]">
-                <motion.div
-                    animate={{ scale: [1, 1.2, 1], x: [0, 60, 0], y: [0, 30, 0] }}
-                    transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-                    className="absolute top-[5%] left-[-5%] w-[600px] h-[600px] bg-primary-500/15 rounded-full blur-[180px]"
-                />
-                <motion.div
-                    animate={{ scale: [1, 1.3, 1], x: [0, -60, 0], y: [0, -40, 0] }}
-                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                    className="absolute bottom-[-5%] right-[-5%] w-[700px] h-[700px] bg-secondary-500/12 rounded-full blur-[200px]"
-                />
-                <motion.div
-                    animate={{ scale: [1, 1.15, 1], x: [0, 40, 0], y: [0, -50, 0] }}
-                    transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                    className="absolute top-[40%] left-[50%] w-[350px] h-[350px] bg-secondary-400/6 rounded-full blur-[140px]"
-                />
-            </div>
+            {/* High-contrast spotlight */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] max-w-[1000px] h-[500px] bg-primary-500/15 rounded-full blur-[120px] opacity-50 z-[1] mix-blend-screen pointer-events-none" />
 
             <Particles />
 
             <div className="container relative z-10 mx-auto px-6 max-w-7xl">
                 <div className="flex flex-col items-center text-center">
 
-                    {/* Elegant tag */}
+                    {/* Sleek tag */}
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 2.2 }}
-                        className="inline-flex items-center gap-3 px-6 py-2.5 mb-12 rounded-full border border-secondary-400/30 bg-secondary-500/8 backdrop-blur-md text-secondary-400 text-sm font-medium tracking-wider shimmer-line"
+                        className="inline-flex items-center gap-3 px-6 py-2.5 mb-12 rounded-full border border-foreground/10 bg-foreground/5 backdrop-blur-md text-foreground/80 text-sm font-medium tracking-widest uppercase"
                     >
-                        <Sparkles size={14} className="animate-pulse" />
+                        <Sparkles size={14} className="animate-pulse text-primary-500" />
                         Software Engineer • IT Student
                     </motion.div>
 
-                    {/* Name — grand and elegant */}
+                    {/* Massive striking name */}
                     <TextReveal delay={2.4}>
-                        <h1 className="text-5xl md:text-7xl lg:text-[8.5rem] font-serif font-light tracking-tight mb-6 text-foreground leading-[0.9]">
+                        <h1 className="text-6xl md:text-8xl lg:text-[11rem] font-serif font-medium tracking-tighter mb-4 text-foreground leading-[0.85]">
                             Shawn Ryan <br />
-                            <span className="gradient-text italic font-normal">Nacario</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600">Nacario</span>
                         </h1>
                     </TextReveal>
 
-                    {/* Decorative gold line */}
+                    {/* Decorative minimalist line */}
                     <motion.div
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: 1 }}
                         transition={{ duration: 1.2, delay: 2.6, ease: [0.16, 1, 0.3, 1] }}
-                        className="w-32 h-px bg-gradient-to-r from-transparent via-secondary-400 to-transparent mb-8 opacity-60"
+                        className="w-24 h-[2px] bg-foreground/20 mb-10"
                     />
 
                     {/* Subtitle */}
                     <TextReveal delay={2.8}>
-                        <p className="text-base md:text-lg lg:text-xl font-light text-foreground/55 max-w-xl mx-auto leading-relaxed mb-14">
-                            Crafting elegant software solutions with a passion for clean code,
-                            modern design, and cutting-edge technologies.
+                        <p className="text-base md:text-lg text-foreground/60 max-w-xl mx-auto leading-relaxed mb-14 font-light">
+                            Crafting high-performance software solutions with an uncompromising passion for clean architecture and state-of-the-art design.
                         </p>
                     </TextReveal>
 
@@ -114,8 +97,8 @@ export function Hero() {
                     >
                         <Magnetic>
                             <Link
-                                href="#projects"
-                                className="group relative flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400 text-white rounded-full font-medium transition-all duration-500 glow-hover hover:-translate-y-1"
+                                href="/projects"
+                                className="group relative flex items-center gap-3 px-8 py-4 bg-foreground text-background rounded-full font-medium transition-all duration-500 hover:scale-105"
                             >
                                 Explore Portfolio
                                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
@@ -123,8 +106,8 @@ export function Hero() {
                         </Magnetic>
                         <Magnetic>
                             <Link
-                                href="#contact"
-                                className="group flex items-center gap-3 px-8 py-4 rounded-full font-medium border border-secondary-400/25 text-foreground hover:border-secondary-400/50 hover:bg-secondary-500/5 transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm"
+                                href="/contact"
+                                className="group flex items-center gap-3 px-8 py-4 rounded-full font-medium border border-foreground/15 text-foreground hover:border-foreground/30 hover:bg-foreground/5 transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm"
                             >
                                 Get In Touch
                             </Link>
@@ -162,9 +145,9 @@ export function Hero() {
                 <motion.div
                     animate={{ y: [0, 12, 0] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-7 h-11 rounded-full border-2 border-secondary-400/30 flex items-start justify-center p-2 backdrop-blur-sm"
+                    className="w-7 h-11 rounded-full border-2 border-foreground/20 flex items-start justify-center p-2 backdrop-blur-sm"
                 >
-                    <div className="w-1.5 h-2.5 bg-secondary-400/60 rounded-full" />
+                    <div className="w-1.5 h-2.5 bg-foreground/60 rounded-full" />
                 </motion.div>
             </motion.div>
         </section>
