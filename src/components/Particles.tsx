@@ -8,13 +8,15 @@ export function Particles() {
 
   useEffect(() => {
     setParticles(
-      Array.from({ length: 35 }, (_, i) => ({
+      Array.from({ length: 50 }, (_, i) => ({
         id: i,
         x: Math.random() * 100,
         y: Math.random() * 100,
-        size: Math.random() * 2.5 + 1,
+        size: Math.random() * 3 + 1,
         duration: Math.random() * 25 + 12,
         delay: Math.random() * 8,
+        // Some particles are brighter green
+        bright: Math.random() > 0.7,
       }))
     );
   }, []);
@@ -24,7 +26,9 @@ export function Particles() {
       {particles.map((p) => (
         <motion.div
           key={p.id}
-          className="absolute rounded-full bg-secondary-400/30 mix-blend-screen"
+          className={`absolute rounded-full mix-blend-screen ${
+            p.bright ? "bg-primary-400/40" : "bg-secondary-400/25"
+          }`}
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
@@ -34,7 +38,7 @@ export function Particles() {
           animate={{
             y: [0, -80, 0],
             x: [0, 30, 0],
-            opacity: [0, 0.6, 0],
+            opacity: [0, p.bright ? 0.8 : 0.5, 0],
             scale: [1, 1.3, 1]
           }}
           transition={{

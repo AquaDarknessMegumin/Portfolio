@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, GraduationCap, Calendar } from "lucide-react";
+import { ArrowRight, GraduationCap, Calendar, Trophy } from "lucide-react";
 
 export function ExperiencePreview() {
     const topExperiences = [
@@ -12,6 +12,7 @@ export function ExperiencePreview() {
             date: "2022 - Present",
             description: "Currently pursuing a degree in IT, focusing on software development, database management, and modern web technologies.",
             highlight: true,
+            icon: <GraduationCap size={20} />,
         },
         {
             title: "Science, Technology, Engineering, and Mathematics",
@@ -19,11 +20,12 @@ export function ExperiencePreview() {
             date: "2020 - 2022",
             description: "Gained a strong foundation in STEM disciplines, analytical thinking, and research methodology.",
             highlight: false,
+            icon: <Trophy size={20} />,
         },
     ];
 
     return (
-        <section className="py-24 relative overflow-hidden">
+        <section className="py-28 relative overflow-hidden">
             <div className="section-divider absolute top-0 left-0 right-0" />
 
             <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
@@ -54,23 +56,30 @@ export function ExperiencePreview() {
                             initial={{ opacity: 0, y: 25 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className={`glass-card p-8 group ${exp.highlight ? "border-primary-500/15" : ""}`}
+                            transition={{ duration: 0.5, delay: index * 0.15 }}
+                            className={`glass-card p-8 group relative overflow-hidden ${exp.highlight ? "border-primary-500/15" : ""}`}
                         >
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${exp.highlight ? "bg-primary-500/10" : "bg-foreground/5"}`}>
-                                    <GraduationCap size={20} className={exp.highlight ? "text-primary-400" : "text-foreground/60"} />
+                            {/* Subtle corner glow for highlighted */}
+                            {exp.highlight && (
+                                <div className="absolute -top-12 -right-12 w-32 h-32 bg-primary-500/10 rounded-full blur-3xl pointer-events-none" />
+                            )}
+
+                            <div className="relative z-10">
+                                <div className="flex items-center justify-between mb-5">
+                                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${exp.highlight ? "bg-primary-500/10 text-primary-400" : "bg-foreground/5 text-foreground/60"}`}>
+                                        {exp.icon}
+                                    </div>
+                                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-foreground/40">
+                                        <Calendar size={12} />
+                                        <span>{exp.date}</span>
+                                    </div>
                                 </div>
-                                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-foreground/40">
-                                    <Calendar size={12} />
-                                    <span>{exp.date}</span>
-                                </div>
+                                <h3 className="text-lg font-medium text-foreground mb-1 group-hover:text-primary-400 transition-colors tracking-tight leading-snug">
+                                    {exp.title}
+                                </h3>
+                                <p className="text-sm text-foreground/50 font-medium mb-4">{exp.organization}</p>
+                                <p className="text-foreground/40 text-sm leading-relaxed font-light">{exp.description}</p>
                             </div>
-                            <h3 className="text-lg font-medium text-foreground mb-1 group-hover:text-primary-400 transition-colors tracking-tight leading-snug">
-                                {exp.title}
-                            </h3>
-                            <p className="text-sm text-foreground/50 font-medium mb-3">{exp.organization}</p>
-                            <p className="text-foreground/40 text-sm leading-relaxed font-light">{exp.description}</p>
                         </motion.div>
                     ))}
                 </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Code2, MonitorSmartphone, FolderKanban } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Magnetic } from "./Magnetic";
@@ -33,25 +33,36 @@ function AnimatedCounter({ value }: { value: number }) {
     }, [motionValue, value, hasAnimated]);
 
     return (
-        <span ref={ref} className="text-4xl md:text-5xl font-serif font-medium tracking-tighter text-foreground">
+        <span ref={ref} className="text-3xl md:text-4xl font-serif font-bold tracking-tighter text-foreground">
             <motion.span>{rounded}</motion.span>+
         </span>
     );
 }
 
+
+
 export function Hero() {
     return (
-        <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-background">
+        <section id="home" className="relative min-h-screen flex flex-col overflow-hidden bg-background">
 
             {/* Dot grid pattern */}
             <div className="absolute inset-0 dot-grid opacity-20 z-0" />
 
-            {/* High-contrast spotlight */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] max-w-[1000px] h-[500px] bg-primary-500/15 rounded-full blur-[120px] opacity-50 z-[1] mix-blend-screen pointer-events-none" />
+            {/* High-contrast spotlight — top center */}
+            <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[90%] max-w-[1200px] h-[600px] bg-primary-500/12 rounded-full blur-[150px] opacity-60 z-[1] pointer-events-none" />
+
+            {/* Bottom left accent glow */}
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary-500/8 rounded-full blur-[120px] opacity-50 z-[1] pointer-events-none" />
+
+            {/* Bottom right accent glow */}
+            <div className="absolute bottom-0 right-[20%] w-[300px] h-[300px] bg-primary-700/10 rounded-full blur-[100px] opacity-40 z-[1] pointer-events-none" />
 
             <Particles />
 
-            <div className="container relative z-10 mx-auto px-6 max-w-7xl">
+
+
+            {/* Main content */}
+            <div className="container relative z-10 mx-auto px-6 max-w-7xl flex-1 flex flex-col items-center justify-center pt-20 pb-8">
                 <div className="flex flex-col items-center text-center">
 
                     {/* Sleek tag */}
@@ -59,7 +70,7 @@ export function Hero() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 2.2 }}
-                        className="inline-flex items-center gap-3 px-6 py-2.5 mb-12 rounded-full border border-foreground/10 bg-foreground/5 backdrop-blur-md text-foreground/80 text-sm font-medium tracking-widest uppercase"
+                        className="inline-flex items-center gap-3 px-6 py-2.5 mb-10 rounded-full border border-foreground/10 bg-foreground/5 backdrop-blur-md text-foreground/80 text-sm font-medium tracking-widest uppercase"
                     >
                         <Sparkles size={14} className="animate-pulse text-primary-500" />
                         Software Engineer • IT Student
@@ -67,24 +78,21 @@ export function Hero() {
 
                     {/* Massive striking name */}
                     <TextReveal delay={2.4}>
-                        <h1 className="text-6xl md:text-8xl lg:text-[11rem] font-serif font-medium tracking-tighter mb-4 text-foreground leading-[0.85]">
-                            Shawn Ryan <br />
+                        <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-serif font-medium tracking-tighter mb-2 text-foreground leading-[0.85]">
+                            Shawn Ryan
+                        </h1>
+                    </TextReveal>
+                    <TextReveal delay={2.5}>
+                        <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-serif font-medium tracking-tighter mb-6 leading-[0.85]">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600">Nacario</span>
                         </h1>
                     </TextReveal>
 
-                    {/* Decorative minimalist line */}
-                    <motion.div
-                        initial={{ scaleX: 0 }}
-                        animate={{ scaleX: 1 }}
-                        transition={{ duration: 1.2, delay: 2.6, ease: [0.16, 1, 0.3, 1] }}
-                        className="w-24 h-[2px] bg-foreground/20 mb-10"
-                    />
-
                     {/* Subtitle */}
-                    <TextReveal delay={2.8}>
-                        <p className="text-base md:text-lg text-foreground/60 max-w-xl mx-auto leading-relaxed mb-14 font-light">
-                            Crafting high-performance software solutions with an uncompromising passion for clean architecture and state-of-the-art design.
+                    <TextReveal delay={2.7}>
+                        <p className="text-sm md:text-base text-foreground/50 max-w-lg mx-auto leading-relaxed mb-10 font-light">
+                            Crafting high-performance software solutions with an uncompromising
+                            passion for clean architecture and state-of-the-art design.
                         </p>
                     </TextReveal>
 
@@ -92,62 +100,78 @@ export function Hero() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 3.0 }}
-                        className="flex flex-col sm:flex-row items-center gap-5"
+                        transition={{ duration: 0.8, delay: 2.9 }}
+                        className="flex flex-col sm:flex-row items-center gap-4"
                     >
                         <Magnetic>
                             <Link
                                 href="/projects"
-                                className="group relative flex items-center gap-3 px-8 py-4 bg-foreground text-background rounded-full font-medium transition-all duration-500 hover:scale-105"
+                                className="group relative flex items-center gap-3 px-7 py-3.5 bg-foreground text-background rounded-full font-medium text-sm transition-all duration-500 hover:scale-105 hover:shadow-[0_0_30px_rgba(34,197,94,0.2)]"
                             >
                                 Explore Portfolio
-                                <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
+                                <ArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
                             </Link>
                         </Magnetic>
                         <Magnetic>
                             <Link
                                 href="/contact"
-                                className="group flex items-center gap-3 px-8 py-4 rounded-full font-medium border border-foreground/15 text-foreground hover:border-foreground/30 hover:bg-foreground/5 transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm"
+                                className="group flex items-center gap-3 px-7 py-3.5 rounded-full font-medium text-sm border border-foreground/15 text-foreground hover:border-primary-500/30 hover:bg-primary-500/5 transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm"
                             >
-                                Get In Touch
+                                Get in Touch
                             </Link>
                         </Magnetic>
-                    </motion.div>
-
-                    {/* Stats row */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 3.4 }}
-                        className="flex items-center gap-10 md:gap-16 mt-24 text-center"
-                    >
-                        {[
-                            { value: 3, label: "Years Coding" },
-                            { value: 1, label: "Projects Built" },
-                            { value: 16, label: "Technologies" },
-                        ].map((stat, i) => (
-                            <div key={i} className="flex flex-col items-center">
-                                <AnimatedCounter value={stat.value} />
-                                <span className="text-[10px] text-foreground/35 tracking-[0.2em] uppercase mt-2">{stat.label}</span>
-                            </div>
-                        ))}
                     </motion.div>
                 </div>
             </div>
 
-            {/* Scroll pill — gold accent */}
+            {/* Stats row — glass cards with icons at the bottom */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 3.2, duration: 0.8 }}
+                className="relative z-10 w-full px-6"
+            >
+                <div className="container mx-auto max-w-4xl grid grid-cols-3 gap-4 pb-8">
+                    {[
+                        { value: 3, label: "Years", sublabel: "Experience", icon: <Code2 size={22} className="text-primary-400" /> },
+                        { value: 14, label: "Delivered", sublabel: "Solutions", icon: <MonitorSmartphone size={22} className="text-primary-400" /> },
+                        { value: 16, label: "Key", sublabel: "Projects", icon: <FolderKanban size={22} className="text-primary-400" /> },
+                    ].map((stat, i) => (
+                        <div
+                            key={i}
+                            className="glass-card px-5 py-5 flex items-center gap-4 group relative overflow-hidden"
+                        >
+                            {/* Subtle corner glow */}
+                            <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                            <div className="w-11 h-11 rounded-xl bg-primary-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                {stat.icon}
+                            </div>
+                            <div className="relative z-10">
+                                <AnimatedCounter value={stat.value} />
+                                <p className="text-[10px] md:text-xs text-foreground/40 tracking-[0.15em] uppercase font-medium leading-tight mt-0.5">
+                                    {stat.label}<br />{stat.sublabel}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </motion.div>
+
+
+            {/* Scroll indicator — center bottom */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 3.8 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
+                className="absolute bottom-20 left-1/2 -translate-x-1/2 z-10 lg:hidden"
             >
                 <motion.div
-                    animate={{ y: [0, 12, 0] }}
+                    animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-7 h-11 rounded-full border-2 border-foreground/20 flex items-start justify-center p-2 backdrop-blur-sm"
+                    className="w-6 h-10 rounded-full border-2 border-foreground/20 flex items-start justify-center p-1.5 backdrop-blur-sm"
                 >
-                    <div className="w-1.5 h-2.5 bg-foreground/60 rounded-full" />
+                    <div className="w-1 h-2 bg-foreground/60 rounded-full" />
                 </motion.div>
             </motion.div>
         </section>

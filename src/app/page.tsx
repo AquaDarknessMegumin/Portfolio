@@ -1,4 +1,5 @@
 import { Hero } from "@/components/Hero";
+import { MarqueeBanner } from "@/components/MarqueeBanner";
 import { AboutPreview } from "@/components/previews/AboutPreview";
 import { SkillsPreview } from "@/components/previews/SkillsPreview";
 import { ExperiencePreview } from "@/components/previews/ExperiencePreview";
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col w-full">
       <Hero />
+      <MarqueeBanner />
       <AboutPreview />
       <SkillsPreview />
       <ExperiencePreview />

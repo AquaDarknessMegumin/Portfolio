@@ -37,33 +37,33 @@ function Scene() {
     return (
         <group ref={groupRef}>
             {/* Primary color sparkles */}
-            <Sparkles 
-                count={150} 
-                scale={15} 
-                size={1.5} 
-                speed={0.4} 
-                opacity={0.5} 
+            <Sparkles
+                count={150}
+                scale={15}
+                size={1.5}
+                speed={0.4}
+                opacity={0.5}
                 color="#8b1a1a" // primary-500
             />
             {/* Secondary color sparkles */}
-            <Sparkles 
-                count={100} 
-                scale={12} 
-                size={2.5} 
-                speed={0.3} 
-                opacity={0.3} 
+            <Sparkles
+                count={100}
+                scale={12}
+                size={2.5}
+                speed={0.3}
+                opacity={0.3}
                 color="#b8860b" // secondary-500
             />
             {/* Accent color sparkles */}
-            <Sparkles 
-                count={80} 
-                scale={10} 
-                size={2} 
-                speed={0.2} 
-                opacity={0.4} 
+            <Sparkles
+                count={80}
+                scale={10}
+                size={2}
+                speed={0.2}
+                opacity={0.4}
                 color="#c97878" // accent-500
             />
-            
+
             <AbstractShape />
         </group>
     );
