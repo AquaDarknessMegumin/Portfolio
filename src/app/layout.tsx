@@ -3,7 +3,7 @@ import { Cinzel, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { Preloader } from "@/components/Preloader";
+import { PreloaderProvider } from "@/components/Preloader";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { CustomCursor } from "@/components/CustomCursor";
 import { Noise } from "@/components/Noise";
@@ -33,11 +33,12 @@ export default function RootLayout({
           <SmoothScroll>
             <Noise />
             <CustomCursor />
-            <Preloader />
-            <Navbar />
-            <PageTransition>
-              {children}
-            </PageTransition>
+            <PreloaderProvider>
+              <Navbar />
+              <PageTransition>
+                {children}
+              </PageTransition>
+            </PreloaderProvider>
           </SmoothScroll>
         </ThemeProvider>
       </body>

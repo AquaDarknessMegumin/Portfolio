@@ -10,16 +10,22 @@ export function CertificatesPreview() {
             title: "Introduction to Cybersecurity",
             issuer: "Cisco",
             icon: <ShieldCheck size={20} className="text-primary-400" />,
+            image: "https://images.credly.com/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/linkedin_thumb_I2CS__1_.png",
+            description: "Introductory knowledge of cybersecurity, cyber threats, vulnerabilities, and threat detection.",
         },
         {
             title: "CyberOps Associate",
             issuer: "Cisco",
             icon: <ShieldCheck size={20} className="text-primary-400" />,
+            image: "https://images.credly.com/images/53f37f83-04a1-4935-9b1e-21a99cc6e1b2/linkedin_thumb_CyberOpsAssoc.png",
+            description: "Broad understanding of Security Operations and skills to detect and analyze intrusions.",
         },
         {
             title: "CCNA: Switching, Routing, and Wireless Essentials",
             issuer: "Cisco",
             icon: <Award size={20} className="text-primary-400" />,
+            image: "https://images.credly.com/images/f4ccdba9-dd65-4349-baad-8f05df116443/linkedin_thumb_CCNASRWE__1_.png",
+            description: "Foundation in switching operations, wired/wireless LAN configuration, and redundancy protocols.",
         },
     ];
 
@@ -56,16 +62,31 @@ export function CertificatesPreview() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="glass-card p-7 group flex items-start gap-4"
+                            className="glass-card p-7 group relative overflow-hidden flex items-center min-h-[100px]"
                         >
-                            <div className="w-10 h-10 rounded-xl bg-foreground/5 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-primary-500/10 transition-all duration-300">
-                                {cert.icon}
+                            {/* Base Card Content */}
+                            <div className="w-full flex items-center gap-4 transition-opacity duration-300 group-hover:opacity-0 relative z-10">
+                                <div className="w-10 h-10 rounded-xl bg-foreground/5 flex items-center justify-center shrink-0">
+                                    {cert.icon}
+                                </div>
+                                <div>
+                                    <h3 className="text-sm font-medium text-foreground leading-snug tracking-tight mb-1">
+                                        {cert.title}
+                                    </h3>
+                                    <p className="text-foreground/50 text-xs font-light">{cert.issuer}</p>
+                                </div>
                             </div>
-                            <div>
-                                <h3 className="text-sm font-medium text-foreground group-hover:text-primary-400 transition-colors leading-snug tracking-tight mb-1">
-                                    {cert.title}
-                                </h3>
-                                <p className="text-foreground/40 text-xs font-light">{cert.issuer}</p>
+
+                            {/* Hover Overlay Modal */}
+                            <div className="absolute inset-0 z-20 bg-background/95 backdrop-blur-xl opacity-0 group-hover:opacity-100 transition-all duration-400 flex items-center gap-4 p-5 translate-y-2 group-hover:translate-y-0">
+                                <div className="w-12 h-12 shrink-0 drop-shadow-lg">
+                                    <img src={cert.image} alt={cert.title} className="w-full h-full object-contain" />
+                                </div>
+                                <div className="flex flex-col justify-center">
+                                    <p className="text-xs font-light text-foreground/80 leading-snug line-clamp-2">
+                                        {cert.description}
+                                    </p>
+                                </div>
                             </div>
                         </motion.div>
                     ))}
