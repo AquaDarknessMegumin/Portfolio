@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { BlurImage } from "@/components/BlurImage";
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 
@@ -14,7 +14,7 @@ export function AboutPreview() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, margin: "-100px" }}
+                    viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
                     className="mb-12 text-center"
                 >
@@ -33,7 +33,7 @@ export function AboutPreview() {
                     <div className="flex flex-col md:flex-row">
                         {/* Profile Image */}
                         <div className="w-full md:w-1/3 relative min-h-[300px] md:min-h-[400px] overflow-hidden group">
-                            <Image
+                            <BlurImage
                                 src="/ProfilePicture.png"
                                 alt="Shawn Ryan Nacario"
                                 fill

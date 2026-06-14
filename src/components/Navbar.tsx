@@ -57,12 +57,12 @@ export function Navbar() {
             animate={{ y: hidden ? -150 : 0 }}
             transition={{ duration: 0.4, ease: "easeInOut", delay: mounted ? 0 : 1.8 }}
             className={cn(
-                "fixed left-0 right-0 z-50 transition-all duration-500 flex justify-center",
+                "fixed left-0 right-0 z-50 transition-[top,padding] duration-500 flex justify-center",
                 isScrolled ? "top-4 md:top-6 px-4 md:px-8" : "top-0 px-0"
             )}
         >
             <div className={cn(
-                "w-full flex items-center justify-between transition-all duration-700",
+                "w-full flex items-center justify-between transition-[max-width,background-color,backdrop-filter,box-shadow,padding,border-radius,border-color] duration-700",
                 isScrolled
                     ? "max-w-[1000px] bg-background/40 backdrop-blur-lg shadow-[0_8px_32px_rgba(0,0,0,0.5)] py-3 px-8 md:px-10 rounded-full"
                     : "max-w-7xl bg-transparent border-transparent py-6 lg:py-8 px-6 md:px-12"

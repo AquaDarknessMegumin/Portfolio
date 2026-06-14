@@ -2,21 +2,11 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
-import Image from "next/image";
+import { BlurImage } from "@/components/BlurImage";
+import { projects } from "@/lib/projects";
+import { cn } from "@/lib/utils";
 
 export function Projects() {
-    const projects = [
-        {
-            title: "DentEase",
-            subtitle: "Dental Booking App",
-            description: "A dental appointment booking application that streamlines the process of scheduling and managing dental visits. Built as a final project for Application Development.",
-            image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80",
-            tags: ["React", "App Development", "Booking System"],
-            githubUrl: "https://github.com/AquaDarknessMegumin/AppDev_FinalProj_Dentease",
-            liveUrl: "https://github.com/AquaDarknessMegumin/AppDev_FinalProj_Dentease",
-        }
-    ];
-
     return (
         <section id="projects" className="py-32 relative overflow-hidden bg-background">
             <div className="section-divider absolute top-0 left-0 right-0" />
@@ -25,7 +15,7 @@ export function Projects() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, margin: "-100px" }}
+                    viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
                     className="mb-20 text-center"
                 >
@@ -49,13 +39,19 @@ export function Projects() {
                         >
                             <div className="flex flex-col lg:flex-row">
                                 {/* Image */}
-                                <div className="w-full lg:w-3/5 relative overflow-hidden">
+                                <div className={cn(
+                                    "w-full lg:w-3/5 relative overflow-hidden",
+                                    project.objectFit === "contain" ? "bg-neutral-950" : "bg-black/5"
+                                )}>
                                     <div className="aspect-[4/3] w-full relative">
-                                        <Image
+                                        <BlurImage
                                             src={project.image}
                                             alt={project.title}
                                             fill
-                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                            className={cn(
+                                                "transition-transform duration-700 group-hover:scale-105",
+                                                project.objectFit === "contain" ? "object-contain p-8 md:p-12" : "object-cover"
+                                            )}
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
                                         

@@ -7,6 +7,7 @@ import { Preloader } from "@/components/Preloader";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { CustomCursor } from "@/components/CustomCursor";
 import { Noise } from "@/components/Noise";
+import { PageTransition } from "@/components/PageTransition";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -19,17 +20,6 @@ const cinzel = Cinzel({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Shawn Ryan Nacario — IT Portfolio",
-  description: "Portfolio of Shawn Ryan C. Nacario, an aspiring IT professional and Information Technology student at the University of San Carlos, showcasing projects, skills, and experience in software development.",
-  keywords: ["Shawn Ryan Nacario", "IT Student", "Portfolio", "Web Developer", "University of San Carlos", "Software Development"],
-  authors: [{ name: "Shawn Ryan Nacario" }],
-  openGraph: {
-    title: "Shawn Ryan Nacario — IT Portfolio",
-    description: "Aspiring IT Professional | Information Technology Student at University of San Carlos",
-    type: "website",
-  },
-};
 
 export default function RootLayout({
   children,
@@ -45,7 +35,9 @@ export default function RootLayout({
             <CustomCursor />
             <Preloader />
             <Navbar />
-            {children}
+            <PageTransition>
+              {children}
+            </PageTransition>
           </SmoothScroll>
         </ThemeProvider>
       </body>

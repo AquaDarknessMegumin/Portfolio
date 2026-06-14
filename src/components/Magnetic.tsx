@@ -5,18 +5,23 @@ import { motion } from "framer-motion";
 
 export function Magnetic({ children, multiplier = 0.2 }: { children: ReactElement; multiplier?: number }) {
   const ref = useRef<HTMLDivElement>(null);
+  const rectRef = useRef<DOMRect | null>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const handleMouse = (e: React.MouseEvent<HTMLDivElement>) => {
     const { clientX, clientY } = e;
     if (!ref.current) return;
-    const { height, width, left, top } = ref.current.getBoundingClientRect();
+    if (!rectRef.current) {
+      rectRef.current = ref.current.getBoundingClientRect();
+    }
+    const { height, width, left, top } = rectRef.current;
     const middleX = clientX - (left + width / 2);
     const middleY = clientY - (top + height / 2);
     setPosition({ x: middleX * multiplier, y: middleY * multiplier });
   };
 
   const reset = () => {
+    rectRef.current = null;
     setPosition({ x: 0, y: 0 });
   };
 

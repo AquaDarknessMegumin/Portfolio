@@ -53,9 +53,9 @@ export function CustomCursor() {
 
   return (
     <>
-      {/* Outer Trailing Glassy Circle */}
+      {/* Outer Trailing Glassy Circle - Base size: w-4 h-4 (16px) */}
       <motion.div
-        className="fixed top-0 left-0 bg-primary-500/10 border border-primary-500/30 backdrop-blur-[2px] rounded-full pointer-events-none z-[9998] hidden lg:flex items-center justify-center transition-colors duration-300"
+        className="fixed top-0 left-0 w-4 h-4 bg-white/10 border border-white/30 rounded-full pointer-events-none z-[9998] hidden lg:flex items-center justify-center mix-blend-difference"
         style={{
           x: cursorX,
           y: cursorY,
@@ -63,17 +63,14 @@ export function CustomCursor() {
           translateY: "-50%",
         }}
         animate={{
-          width: cursorSize,
-          height: cursorSize,
-          scale: isHovered ? 1.1 : [1, 1.15, 1], // Breathing effect when not hovered
+          scale: isHovered ? 4 : [1, 1.15, 1], // Scales from 16px to 64px on hover, breathes when idle
         }}
         transition={{ 
-          width: { type: "tween", ease: "backOut", duration: 0.3 },
-          height: { type: "tween", ease: "backOut", duration: 0.3 },
           scale: {
+            type: "tween",
+            ease: isHovered ? "backOut" : "easeInOut",
             duration: isHovered ? 0.3 : 2.5,
             repeat: isHovered ? 0 : Infinity,
-            ease: "easeInOut"
           }
         }}
       >
@@ -82,15 +79,15 @@ export function CustomCursor() {
           <motion.div 
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="w-full h-full border border-primary-500/20 rounded-full animate-ping"
+            className="w-full h-full border border-white/20 rounded-full animate-ping"
             style={{ animationDuration: '2s' }}
           />
         )}
       </motion.div>
 
-      {/* Inner precise solid dot */}
+      {/* Inner precise solid dot - Base size: w-2 h-2 (8px) */}
       <motion.div
-        className="fixed top-0 left-0 bg-primary-500 rounded-full pointer-events-none z-[9999] hidden lg:block shadow-[0_0_10px_rgba(34,197,94,0.5)]"
+        className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[9999] hidden lg:block mix-blend-difference shadow-[0_0_8px_rgba(255,255,255,0.4)]"
         style={{
           x: dotX,
           y: dotY,
@@ -98,8 +95,7 @@ export function CustomCursor() {
           translateY: "-50%",
         }}
         animate={{
-          width: isHovered ? 4 : 8,
-          height: isHovered ? 4 : 8,
+          scale: isHovered ? 0.5 : 1, // Scales from 8px to 4px on hover
           opacity: isHovered ? 0.5 : 1,
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.3 }}

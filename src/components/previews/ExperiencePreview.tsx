@@ -30,7 +30,7 @@ export function ExperiencePreview() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, margin: "-100px" }}
+                    viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
                     className="mb-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-4"
                 >

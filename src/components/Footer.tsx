@@ -34,7 +34,7 @@ export function Footer() {
                             <Github size={18} />
                         </a>
                         <a
-                            href="https://www.facebook.com/"
+                            href="https://www.facebook.com/shawnryan.nacario"
                             target="_blank"
                             rel="noreferrer"
                             className="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-foreground/50 hover:text-primary-400 hover:border-primary-500/30 transition-all duration-300 hover:-translate-y-1"
@@ -55,17 +55,6 @@ export function Footer() {
                             <ArrowUp size={18} />
                         </button>
                     </div>
-                </div>
-
-                <div className="section-divider my-8" />
-
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <p className="text-foreground/30 text-sm">
-                        &copy; {currentYear} Shawn Ryan Nacario. All rights reserved.
-                    </p>
-                    <p className="text-foreground/20 text-xs">
-                        Designed & Built with ❤️
-                    </p>
                 </div>
             </div>
         </footer>

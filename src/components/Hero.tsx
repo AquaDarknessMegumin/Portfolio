@@ -123,7 +123,7 @@ export function Hero() {
                     >
                         {[
                             { value: 3, label: "Years Coding" },
-                            { value: 1, label: "Projects Built" },
+                            { value: 3, label: "Projects Built" },
                             { value: 16, label: "Technologies" },
                         ].map((stat, i) => (
                             <div key={i} className="flex flex-col items-center">
