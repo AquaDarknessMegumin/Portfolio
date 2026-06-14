@@ -34,7 +34,7 @@ export function About() {
     ];
 
     return (
-        <section id="about" className="pt-44 md:pt-48 pb-32 relative overflow-hidden bg-background">
+        <section id="about" className="py-32 relative overflow-hidden bg-background">
             <div className="section-divider absolute top-0 left-0 right-0" />
 
             {/* Subtle glow grid background */}
@@ -93,7 +93,7 @@ export function About() {
                         {/* Integrated Minimalist Stats */}
                         <div className="grid grid-cols-2 gap-6 w-full mt-10 py-6 border-y border-foreground/10">
                             <div className="text-center border-r border-foreground/10 pr-6">
-                                <p className="text-4xl md:text-5xl font-serif font-medium text-foreground">3+</p>
+                                <p className="text-4xl md:text-5xl font-serif font-medium text-foreground">4+</p>
                                 <p className="text-[10px] text-foreground/45 uppercase tracking-[0.25em] font-semibold mt-1">Years Coding</p>
                             </div>
                             <div className="text-center pl-6">
@@ -113,7 +113,7 @@ export function About() {
                     >
                         <span className="inline-flex items-center gap-2 px-3 py-1 mb-6 self-start rounded-full border border-primary-500/20 bg-primary-500/5 text-primary-500 text-xs font-semibold uppercase tracking-widest">
                             <Sparkles size={12} className="text-primary-500" />
-                            Software Engineer
+                            Full Stack Developer
                         </span>
 
                         <h3 className="text-3xl md:text-5xl font-serif font-medium mb-6 text-foreground leading-[1.15] tracking-tight">

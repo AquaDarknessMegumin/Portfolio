@@ -54,7 +54,7 @@ export function Projects() {
                                             )}
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-                                        
+
                                         {/* Project number */}
                                         <div className="absolute top-5 left-5 w-10 h-10 rounded-xl bg-background/60 backdrop-blur-md border border-foreground/10 flex items-center justify-center text-sm font-mono text-foreground font-semibold">
                                             0{index + 1}

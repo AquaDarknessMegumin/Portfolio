@@ -7,7 +7,7 @@ import { ArrowRight, MapPin, Code2, GraduationCap } from "lucide-react";
 
 export function AboutPreview() {
     return (
-        <section className="py-28 relative overflow-hidden bg-background">
+        <section className="pt-25 pb-25 relative overflow-hidden bg-background">
             <div className="section-divider absolute top-0 left-0 right-0" />
 
             <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
@@ -49,7 +49,7 @@ export function AboutPreview() {
 
                         {/* Bio Summary */}
                         <div className="w-full md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
-                            <p className="text-primary-500 text-xs font-bold tracking-widest uppercase mb-4">Software Engineer</p>
+                            <p className="text-primary-500 text-xs font-bold tracking-widest uppercase mb-4">Full Stack Developer</p>
                             <h3 className="text-2xl md:text-3xl font-serif font-medium mb-4 text-foreground leading-snug tracking-tight">
                                 I am a dedicated IT student bridging the gap between complex problems and elegant solutions.
                             </h3>

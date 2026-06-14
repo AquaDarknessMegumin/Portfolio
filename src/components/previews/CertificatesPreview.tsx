@@ -30,7 +30,7 @@ export function CertificatesPreview() {
     ];
 
     return (
-        <section className="py-24 relative overflow-hidden">
+        <section className="pt-25 pb-25 relative overflow-hidden">
             <div className="section-divider absolute top-0 left-0 right-0" />
 
             <div className="container mx-auto px-6 max-w-[1200px] relative z-10">

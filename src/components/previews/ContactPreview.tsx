@@ -6,7 +6,7 @@ import { ArrowRight, Mail, Sparkles } from "lucide-react";
 
 export function ContactPreview() {
     return (
-        <section className="py-28 relative overflow-hidden bg-background">
+        <section className="pt-25 pb-25 relative overflow-hidden bg-background">
             <div className="section-divider absolute top-0 left-0 right-0" />
 
             <div className="container mx-auto px-6 max-w-[900px] relative z-10">
@@ -23,7 +23,7 @@ export function ContactPreview() {
                     <div className="absolute top-1/2 left-0 w-[150px] h-[150px] bg-primary-500/5 rounded-full blur-[50px] pointer-events-none" />
 
                     <div className="relative z-10">
-                        <motion.div 
+                        <motion.div
                             className="w-14 h-14 rounded-2xl bg-foreground/5 flex items-center justify-center mx-auto mb-6"
                             whileInView={{ rotate: [0, -10, 10, -5, 5, 0] }}
                             transition={{ duration: 1, delay: 0.5 }}

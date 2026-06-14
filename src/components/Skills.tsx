@@ -2,43 +2,54 @@
 
 import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaJava } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss, SiTypescript, SiJavascript, SiFramer, SiMongodb, SiPostgresql, SiPhp, SiC, SiMysql } from "react-icons/si";
+import { SiNextdotjs, SiTailwindcss, SiTypescript, SiJavascript, SiFramer, SiMongodb, SiPostgresql, SiPhp, SiC, SiMysql, SiSupabase, SiVercel, SiEslint } from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
+
+const AceternityIcon = ({ size = 32 }: { size?: number }) => (
+    <svg width={size} height={size} viewBox="48 48 160 160" fill="none" className="text-[#A855F7]">
+        <path d="M146 48H106.136L48 208H87.8644L116.932 128C116.932 128 122 114.5 124.4 108L131.466 88L146 48Z" fill="currentColor"></path>
+        <path d="M110 48H149.864L168.032 98H127.84L110 48Z" fill="currentColor"></path>
+        <path d="M139.587 113.833L171.458 208H208L172.807 113.833H139.587Z" fill="currentColor"></path>
+        <path d="M173 114L140.8 208H104L139.545 114H173Z" fill="currentColor"></path>
+    </svg>
+);
 
 export function Skills() {
     const skillCategories = [
         {
             title: "Frontend",
-            duration: 30,
             skills: [
-                { name: "React", icon: <FaReact size={32} className="text-[#61DAFB]" /> },
-                { name: "Next.js", icon: <SiNextdotjs size={32} className="text-foreground" /> },
-                { name: "TypeScript", icon: <SiTypescript size={32} className="text-[#3178C6]" /> },
-                { name: "JavaScript", icon: <SiJavascript size={32} className="text-[#F7DF1E]" /> },
-                { name: "Tailwind CSS", icon: <SiTailwindcss size={32} className="text-[#38B2AC]" /> },
-                { name: "HTML5", icon: <FaHtml5 size={32} className="text-[#E34F26]" /> },
-                { name: "CSS3", icon: <FaCss3Alt size={32} className="text-[#1572B6]" /> },
-                { name: "Framer Motion", icon: <SiFramer size={32} className="text-[#0055FF]" /> },
+                { name: "React", icon: <FaReact size={32} className="text-[#61DAFB]" />, color: "#61DAFB" },
+                { name: "Next.js", icon: <SiNextdotjs size={32} className="text-foreground" />, color: "#FFFFFF" },
+                { name: "TypeScript", icon: <SiTypescript size={32} className="text-[#3178C6]" />, color: "#3178C6" },
+                { name: "JavaScript", icon: <SiJavascript size={32} className="text-[#F7DF1E]" />, color: "#F7DF1E" },
+                { name: "Tailwind CSS", icon: <SiTailwindcss size={32} className="text-[#38B2AC]" />, color: "#38B2AC" },
+                { name: "Aceternity UI", icon: <AceternityIcon size={32} />, color: "#A855F7" },
+                { name: "HTML5", icon: <FaHtml5 size={32} className="text-[#E34F26]" />, color: "#E34F26" },
+                { name: "CSS3", icon: <FaCss3Alt size={32} className="text-[#1572B6]" />, color: "#1572B6" },
+                { name: "Framer Motion", icon: <SiFramer size={32} className="text-[#0055FF]" />, color: "#0055FF" },
             ]
         },
         {
             title: "Backend & Programming",
-            duration: 22,
-            direction: -1,
             skills: [
-                { name: "Node.js", icon: <FaNodeJs size={32} className="text-[#339933]" /> },
-                { name: "PHP", icon: <SiPhp size={32} className="text-[#777BB4]" /> },
-                { name: "Java", icon: <FaJava size={32} className="text-[#007396]" /> },
-                { name: "C", icon: <SiC size={32} className="text-[#A8B9CC]" /> },
+                { name: "Node.js", icon: <FaNodeJs size={32} className="text-[#339933]" />, color: "#339933" },
+                { name: "PHP", icon: <SiPhp size={32} className="text-[#777BB4]" />, color: "#777BB4" },
+                { name: "Java", icon: <FaJava size={32} className="text-[#007396]" />, color: "#007396" },
+                { name: "C", icon: <SiC size={32} className="text-[#A8B9CC]" />, color: "#A8B9CC" },
             ]
         },
         {
             title: "Database & Tools",
-            duration: 26,
             skills: [
-                { name: "MySQL", icon: <SiMysql size={32} className="text-[#4479A1]" /> },
-                { name: "PostgreSQL", icon: <SiPostgresql size={32} className="text-[#336791]" /> },
-                { name: "MongoDB", icon: <SiMongodb size={32} className="text-[#47A248]" /> },
-                { name: "Git", icon: <FaGitAlt size={32} className="text-[#F05032]" /> },
+                { name: "MySQL", icon: <SiMysql size={32} className="text-[#4479A1]" />, color: "#4479A1" },
+                { name: "PostgreSQL", icon: <SiPostgresql size={32} className="text-[#336791]" />, color: "#336791" },
+                { name: "MongoDB", icon: <SiMongodb size={32} className="text-[#47A248]" />, color: "#47A248" },
+                { name: "Supabase", icon: <SiSupabase size={32} className="text-[#3ECF8E]" />, color: "#3ECF8E" },
+                { name: "Git + GitHub/GitLab", icon: <FaGitAlt size={32} className="text-[#F05032]" />, color: "#F05032" },
+                { name: "Vercel", icon: <SiVercel size={32} className="text-foreground" />, color: "#FFFFFF" },
+                { name: "ESLint", icon: <SiEslint size={32} className="text-[#4B32C3]" />, color: "#4B32C3" },
+                { name: "VS Code", icon: <VscVscode size={32} className="text-[#007ACC]" />, color: "#007ACC" },
             ]
         }
     ];
@@ -63,7 +74,7 @@ export function Skills() {
                     </p>
                 </motion.div>
 
-                <div className="flex flex-col gap-14 overflow-hidden">
+                <div className="flex flex-col gap-16">
                     {skillCategories.map((category, idx) => (
                         <motion.div
                             key={idx}
@@ -78,39 +89,31 @@ export function Skills() {
                                 {category.title}
                             </h3>
 
-                            {/* Edge fade masks */}
-                            <div className="absolute left-0 top-10 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-                            <div className="absolute right-0 top-10 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-
-                            <div className="overflow-hidden flex">
-                                <motion.div
-                                    animate={{
-                                        x: category.direction === -1 ? ["-50%", "0%"] : ["0%", "-50%"]
-                                    }}
-                                    transition={{
-                                        repeat: Infinity,
-                                        ease: "linear",
-                                        duration: category.duration
-                                    }}
-                                    className="flex w-max gap-6 md:gap-10 pr-6 md:pr-10"
-                                >
-                                    {[...category.skills, ...category.skills].map((skill, index) => (
+                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+                                {category.skills.map((skill, index) => (
+                                    <motion.div
+                                        key={index}
+                                        initial={{ opacity: 0, y: 15 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.4, delay: index * 0.05 }}
+                                        className="relative group p-5 rounded-2xl glass-card border border-foreground/5 hover:border-primary-500/20 hover:bg-primary-500/5 cursor-default transition-all duration-300 flex items-center gap-4 overflow-hidden"
+                                    >
+                                        {/* Background Glow */}
                                         <div
-                                            key={index}
-                                            className="flex flex-col items-center justify-center gap-3 group cursor-default"
-                                        >
-                                            <div className="w-20 h-20 rounded-2xl glass-card flex items-center justify-center relative overflow-hidden">
-                                                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-all duration-500" />
-                                                <div className="relative z-10 group-hover:scale-110 transition-transform duration-300">
-                                                    {skill.icon}
-                                                </div>
-                                            </div>
-                                            <span className="text-[11px] tracking-widest text-foreground/35 group-hover:text-foreground/80 transition-colors uppercase font-medium">
-                                                {skill.name}
-                                            </span>
+                                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"
+                                            style={{
+                                                background: `radial-gradient(circle at center, ${skill.color}15 0%, transparent 70%)`
+                                            }}
+                                        />
+                                        <div className="w-12 h-12 rounded-xl bg-foreground/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shrink-0">
+                                            {skill.icon}
                                         </div>
-                                    ))}
-                                </motion.div>
+                                        <span className="text-xs font-semibold tracking-wider text-foreground/45 group-hover:text-foreground transition-colors uppercase">
+                                            {skill.name}
+                                        </span>
+                                    </motion.div>
+                                ))}
                             </div>
                         </motion.div>
                     ))}

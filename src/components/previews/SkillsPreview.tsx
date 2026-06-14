@@ -4,7 +4,17 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaJava } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss, SiTypescript, SiJavascript, SiFramer, SiMongodb, SiPostgresql, SiPhp, SiC, SiMysql } from "react-icons/si";
+import { SiNextdotjs, SiTailwindcss, SiTypescript, SiJavascript, SiFramer, SiMongodb, SiPostgresql, SiPhp, SiC, SiMysql, SiSupabase, SiVercel, SiEslint } from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
+
+const AceternityIcon = ({ size = 28 }: { size?: number }) => (
+    <svg width={size} height={size} viewBox="48 48 160 160" fill="none" className="text-[#A855F7]">
+        <path d="M146 48H106.136L48 208H87.8644L116.932 128C116.932 128 122 114.5 124.4 108L131.466 88L146 48Z" fill="currentColor"></path>
+        <path d="M110 48H149.864L168.032 98H127.84L110 48Z" fill="currentColor"></path>
+        <path d="M139.587 113.833L171.458 208H208L172.807 113.833H139.587Z" fill="currentColor"></path>
+        <path d="M173 114L140.8 208H104L139.545 114H173Z" fill="currentColor"></path>
+    </svg>
+);
 
 export function SkillsPreview() {
     const allSkills = [
@@ -12,10 +22,11 @@ export function SkillsPreview() {
         { name: "Next.js", icon: <SiNextdotjs size={28} className="text-foreground" /> },
         { name: "TypeScript", icon: <SiTypescript size={28} className="text-[#3178C6]" /> },
         { name: "JavaScript", icon: <SiJavascript size={28} className="text-[#F7DF1E]" /> },
-        { name: "Tailwind", icon: <SiTailwindcss size={28} className="text-[#38B2AC]" /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss size={28} className="text-[#38B2AC]" /> },
+        { name: "Aceternity UI", icon: <AceternityIcon size={28} /> },
         { name: "HTML5", icon: <FaHtml5 size={28} className="text-[#E34F26]" /> },
         { name: "CSS3", icon: <FaCss3Alt size={28} className="text-[#1572B6]" /> },
-        { name: "Framer", icon: <SiFramer size={28} className="text-[#0055FF]" /> },
+        { name: "Framer Motion", icon: <SiFramer size={28} className="text-[#0055FF]" /> },
         { name: "Node.js", icon: <FaNodeJs size={28} className="text-[#339933]" /> },
         { name: "PHP", icon: <SiPhp size={28} className="text-[#777BB4]" /> },
         { name: "Java", icon: <FaJava size={28} className="text-[#007396]" /> },
@@ -23,11 +34,15 @@ export function SkillsPreview() {
         { name: "MySQL", icon: <SiMysql size={28} className="text-[#4479A1]" /> },
         { name: "PostgreSQL", icon: <SiPostgresql size={28} className="text-[#336791]" /> },
         { name: "MongoDB", icon: <SiMongodb size={28} className="text-[#47A248]" /> },
-        { name: "Git", icon: <FaGitAlt size={28} className="text-[#F05032]" /> },
+        { name: "Supabase", icon: <SiSupabase size={28} className="text-[#3ECF8E]" /> },
+        { name: "Git + GitHub/GitLab", icon: <FaGitAlt size={28} className="text-[#F05032]" /> },
+        { name: "Vercel", icon: <SiVercel size={28} className="text-foreground" /> },
+        { name: "ESLint", icon: <SiEslint size={28} className="text-[#4B32C3]" /> },
+        { name: "VS Code", icon: <VscVscode size={28} className="text-[#007ACC]" /> },
     ];
 
     return (
-        <section className="py-24 relative overflow-hidden">
+        <section className="pt-25 pb-25 relative overflow-hidden">
             <div className="section-divider absolute top-0 left-0 right-0" />
 
             <div className="container mx-auto px-6 max-w-[1200px] relative z-10">

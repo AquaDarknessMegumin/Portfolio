@@ -8,8 +8,10 @@ import { projects } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 
 export function ProjectsPreview() {
+    const featuredProjects = projects.filter(p => p.title === "G-Events");
+
     return (
-        <section className="py-24 relative overflow-hidden bg-background">
+        <section className="pt-25 pb-25 relative overflow-hidden bg-background">
             <div className="section-divider absolute top-0 left-0 right-0" />
 
             <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
@@ -34,7 +36,7 @@ export function ProjectsPreview() {
                 </motion.div>
 
                 <div className="max-w-5xl mx-auto flex flex-col gap-16">
-                    {projects.map((project, index) => (
+                    {featuredProjects.map((project, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 40 }}

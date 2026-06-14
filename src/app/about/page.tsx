@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 
 export const metadata = {
     title: "About — Shawn Ryan Nacario",
-    description: "Learn more about Shawn Ryan Nacario, an IT student and software engineer from Cebu, Philippines.",
+    description: "Learn more about Shawn Ryan Nacario, an IT student and Full Stack Developer from Cebu, Philippines.",
 };
 
 export default function AboutPage() {

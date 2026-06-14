@@ -32,7 +32,7 @@ export function Certificates() {
     ];
 
     return (
-        <section id="certificates" className="py-28 relative overflow-hidden">
+        <section id="certificates" className="py-32 relative overflow-hidden">
             <div className="section-divider absolute top-0 left-0 right-0" />
 
             <div className="container mx-auto px-6 max-w-[1100px] relative z-10">
@@ -82,7 +82,7 @@ export function Certificates() {
                                     </span>
                                 </div>
                             </div>
-                            
+
                             {/* Hover Overlay Modal */}
                             <div className="absolute inset-0 z-20 bg-background/95 backdrop-blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-6 text-center translate-y-4 group-hover:translate-y-0">
                                 <div className="w-24 h-24 mb-4 drop-shadow-2xl">

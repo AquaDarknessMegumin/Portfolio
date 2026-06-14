@@ -8,7 +8,7 @@ import { Magnetic } from "./Magnetic";
 import { TextReveal } from "./TextReveal";
 import { Particles } from "./Particles";
 
-function AnimatedCounter({ value }: { value: number }) {
+function AnimatedCounter({ value, showPlus = true }: { value: number; showPlus?: boolean }) {
     const ref = useRef<HTMLSpanElement>(null);
     const [hasAnimated, setHasAnimated] = useState(false);
     const motionValue = useMotionValue(0);
@@ -34,7 +34,7 @@ function AnimatedCounter({ value }: { value: number }) {
 
     return (
         <span ref={ref} className="text-3xl md:text-4xl font-serif font-bold tracking-tighter text-foreground">
-            <motion.span>{rounded}</motion.span>+
+            <motion.span>{rounded}</motion.span>{showPlus && "+"}
         </span>
     );
 }
@@ -48,14 +48,88 @@ export function Hero() {
             {/* Dot grid pattern */}
             <div className="absolute inset-0 dot-grid opacity-20 z-0" />
 
-            {/* High-contrast spotlight — top center */}
-            <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[90%] max-w-[1200px] h-[600px] bg-primary-500/12 rounded-full blur-[150px] opacity-60 z-[1] pointer-events-none" />
+            {/* ============================
+               Animated Floating Gradient Orbs
+               ============================ */}
+            {/* Primary orb — large, top center, slow drift */}
+            <motion.div
+                className="absolute top-[-10%] left-1/2 w-[700px] h-[700px] rounded-full pointer-events-none z-[1]"
+                style={{
+                    background: "radial-gradient(circle, var(--color-primary-500) 0%, transparent 70%)",
+                    opacity: 0.12,
+                    filter: "blur(80px)",
+                }}
+                animate={{
+                    x: ["-50%", "-45%", "-55%", "-50%"],
+                    y: ["0%", "8%", "-5%", "0%"],
+                    scale: [1, 1.15, 0.95, 1],
+                }}
+                transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                }}
+            />
 
-            {/* Bottom left accent glow */}
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary-500/8 rounded-full blur-[120px] opacity-50 z-[1] pointer-events-none" />
+            {/* Secondary orb — bottom left, emerald pulse */}
+            <motion.div
+                className="absolute bottom-[-5%] left-[-5%] w-[500px] h-[500px] rounded-full pointer-events-none z-[1]"
+                style={{
+                    background: "radial-gradient(circle, var(--color-primary-400) 0%, transparent 70%)",
+                    opacity: 0.1,
+                    filter: "blur(100px)",
+                }}
+                animate={{
+                    x: ["0%", "10%", "-5%", "0%"],
+                    y: ["0%", "-12%", "5%", "0%"],
+                    scale: [1, 1.2, 0.9, 1],
+                }}
+                transition={{
+                    duration: 25,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                }}
+            />
 
-            {/* Bottom right accent glow */}
-            <div className="absolute bottom-0 right-[20%] w-[300px] h-[300px] bg-primary-700/10 rounded-full blur-[100px] opacity-40 z-[1] pointer-events-none" />
+            {/* Tertiary orb — right side, sage/moss accent */}
+            <motion.div
+                className="absolute top-[30%] right-[-8%] w-[400px] h-[400px] rounded-full pointer-events-none z-[1]"
+                style={{
+                    background: "radial-gradient(circle, var(--color-secondary-500) 0%, transparent 70%)",
+                    opacity: 0.08,
+                    filter: "blur(90px)",
+                }}
+                animate={{
+                    x: ["0%", "-15%", "5%", "0%"],
+                    y: ["0%", "10%", "-8%", "0%"],
+                    scale: [1, 0.85, 1.1, 1],
+                }}
+                transition={{
+                    duration: 18,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                }}
+            />
+
+            {/* Accent orb — small, golden warm, bottom right */}
+            <motion.div
+                className="absolute bottom-[10%] right-[15%] w-[250px] h-[250px] rounded-full pointer-events-none z-[1]"
+                style={{
+                    background: "radial-gradient(circle, var(--color-accent-400) 0%, transparent 70%)",
+                    opacity: 0.06,
+                    filter: "blur(70px)",
+                }}
+                animate={{
+                    x: ["0%", "-10%", "12%", "0%"],
+                    y: ["0%", "-15%", "8%", "0%"],
+                    scale: [1, 1.3, 0.85, 1],
+                }}
+                transition={{
+                    duration: 22,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                }}
+            />
 
             <Particles />
 
@@ -73,7 +147,7 @@ export function Hero() {
                         className="inline-flex items-center gap-3 px-6 py-2.5 mb-10 rounded-full border border-foreground/10 bg-foreground/5 backdrop-blur-md text-foreground/80 text-sm font-medium tracking-widest uppercase"
                     >
                         <Sparkles size={14} className="animate-pulse text-primary-500" />
-                        Software Engineer • IT Student
+                        Full Stack Developer • IT Student
                     </motion.div>
 
                     {/* Massive striking name */}
@@ -134,9 +208,9 @@ export function Hero() {
             >
                 <div className="container mx-auto max-w-4xl grid grid-cols-3 gap-4 pb-8">
                     {[
-                        { value: 3, label: "Years", sublabel: "Experience", icon: <Code2 size={22} className="text-primary-400" /> },
-                        { value: 14, label: "Delivered", sublabel: "Solutions", icon: <MonitorSmartphone size={22} className="text-primary-400" /> },
-                        { value: 16, label: "Key", sublabel: "Projects", icon: <FolderKanban size={22} className="text-primary-400" /> },
+                        { value: 4, label: "Years", sublabel: "Coding", icon: <Code2 size={22} className="text-primary-400" />, showPlus: true },
+                        { value: 16, label: "Technologies", sublabel: "Used", icon: <MonitorSmartphone size={22} className="text-primary-400" />, showPlus: true },
+                        { value: 3, label: "Projects", sublabel: "Built", icon: <FolderKanban size={22} className="text-primary-400" />, showPlus: false },
                     ].map((stat, i) => (
                         <div
                             key={i}
@@ -149,7 +223,7 @@ export function Hero() {
                                 {stat.icon}
                             </div>
                             <div className="relative z-10">
-                                <AnimatedCounter value={stat.value} />
+                                <AnimatedCounter value={stat.value} showPlus={stat.showPlus} />
                                 <p className="text-[10px] md:text-xs text-foreground/40 tracking-[0.15em] uppercase font-medium leading-tight mt-0.5">
                                     {stat.label}<br />{stat.sublabel}
                                 </p>

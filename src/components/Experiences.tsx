@@ -53,7 +53,7 @@ export function Experiences() {
     ];
 
     return (
-        <section id="experiences" className="py-28 relative overflow-hidden">
+        <section id="experiences" className="py-32 relative overflow-hidden">
             <div className="section-divider absolute top-0 left-0 right-0" />
 
             <div className="container mx-auto px-6 max-w-4xl relative z-10">
@@ -89,8 +89,8 @@ export function Experiences() {
                             >
                                 {/* Center Icon */}
                                 <div className={`absolute left-6 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-background border-2 flex items-center justify-center z-10 transition-all duration-300 ${exp.highlight
-                                        ? "border-primary-500/50 shadow-[0_0_20px_rgba(59,130,246,0.15)]"
-                                        : "border-foreground/10"
+                                    ? "border-primary-500/50 shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                                    : "border-foreground/10"
                                     }`}>
                                     {exp.icon}
                                 </div>
