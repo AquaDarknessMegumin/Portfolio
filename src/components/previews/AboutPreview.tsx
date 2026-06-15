@@ -41,7 +41,7 @@ export function AboutPreview() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-background/20" />
                             <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6">
-                                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/50 backdrop-blur-md border border-foreground/10 text-xs font-medium text-foreground">
+                                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-xs font-medium text-white">
                                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> Available for work
                                 </div>
                             </div>
@@ -51,11 +51,10 @@ export function AboutPreview() {
                         <div className="w-full md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
                             <p className="text-primary-500 text-xs font-bold tracking-widest uppercase mb-4">Full Stack Developer</p>
                             <h3 className="text-2xl md:text-3xl font-serif font-medium mb-4 text-foreground leading-snug tracking-tight">
-                                I am a dedicated IT student bridging the gap between complex problems and elegant solutions.
+                                I am a fresh IT graduate bridging the gap between complex problems and elegant, premium solutions.
                             </h3>
                             <p className="text-foreground/60 text-sm md:text-base leading-relaxed font-light mb-8">
-                                My academic journey at the University of San Carlos is complemented by a strong continuous drive
-                                to learn modern technologies and build beautifully engineered applications.
+                                Having recently graduated from the University of San Carlos, I have hands-on experience developing real-world platforms, event systems, and mobile apps. My work is powered by a strong foundation in software engineering, networking (CCNA), and cybersecurity (CyberOps).
                             </p>
 
                             {/* Quick info chips */}

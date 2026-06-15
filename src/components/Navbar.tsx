@@ -11,8 +11,10 @@ import { useTheme } from "next-themes";
 const NAV_LINKS = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
+    { name: "Education", href: "/education" },
     { name: "Skills", href: "/skills" },
     { name: "Projects", href: "/projects" },
+    { name: "Certificates", href: "/certificates" },
     { name: "Contact", href: "/contact" },
 ];
 
@@ -76,14 +78,14 @@ export function Navbar() {
                 </Link>
 
                 {/* Desktop Nav */}
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden md:flex items-center gap-4 lg:gap-8">
                     <nav className="flex items-center gap-1">
                         {NAV_LINKS.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
                                 className={cn(
-                                    "px-4 py-2 rounded-full text-sm transition-all duration-300 relative group font-medium",
+                                    "px-3 lg:px-4 py-2 rounded-full text-xs lg:text-sm transition-all duration-300 relative group font-medium",
                                     pathname === link.href
                                         ? "text-primary-400 bg-primary-500/10"
                                         : "text-foreground/60 hover:text-foreground hover:bg-foreground/5"

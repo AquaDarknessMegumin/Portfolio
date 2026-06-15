@@ -2,20 +2,55 @@
 
 import { motion } from "framer-motion";
 import { Send, Mail, Phone, MapPin } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+
+const EMAILJS_SERVICE_ID = "service_ferpqtm";
+const EMAILJS_TEMPLATE_ID = "template_t2olhzk";
+const EMAILJS_PUBLIC_KEY = "RFetVCdNlEkRY5Z7L";
+
+// Initialize EmailJS
+emailjs.init(EMAILJS_PUBLIC_KEY);
 
 export function Contact() {
+    const formRef = useRef<HTMLFormElement>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (!formRef.current) return;
+
         setIsSubmitting(true);
-        setTimeout(() => {
-            setIsSubmitting(false);
+        setError(null);
+
+        const formData = new FormData(formRef.current);
+        const templateParams = {
+            name: formData.get("name") as string,
+            email: formData.get("email") as string,
+            subject: formData.get("subject") as string,
+            message: formData.get("message") as string,
+        };
+
+        try {
+            const result = await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                templateParams
+            );
+            console.log("EmailJS success:", result);
             setIsSubmitted(true);
+            formRef.current.reset();
             setTimeout(() => setIsSubmitted(false), 5000);
-        }, 1500);
+        } catch (err: unknown) {
+            const errorMsg = err instanceof Error ? err.message : JSON.stringify(err);
+            console.error("EmailJS error:", errorMsg);
+            setError("Failed to send message. Please try again or email me directly.");
+            setTimeout(() => setError(null), 5000);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -86,16 +121,17 @@ export function Contact() {
                         transition={{ duration: 0.8 }}
                         className="lg:col-span-3 glass-card p-8 md:p-10 relative overflow-hidden"
                     >
-                        <form onSubmit={handleSubmit} className="space-y-7">
+                        <form ref={formRef} onSubmit={handleSubmit} className="space-y-7">
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <label htmlFor="name" className="text-xs font-semibold text-foreground/50 uppercase tracking-wider">Name</label>
                                     <input
                                         type="text"
                                         id="name"
+                                        name="name"
                                         required
                                         suppressHydrationWarning
-                                        className="w-full bg-foreground/[0.04] border border-foreground/10 rounded-xl px-4 py-3.5 text-foreground text-sm focus:outline-none focus:border-primary-500/50 focus:ring-2 focus:ring-primary-500/20 transition-all placeholder:text-foreground/20"
+                                        className="w-full bg-foreground/[0.04] border border-neutral-200 dark:border-neutral-800/60 rounded-xl px-4 py-3.5 text-foreground text-sm focus:outline-none focus:border-primary-500/50 focus:ring-2 focus:ring-primary-500/20 transition-all placeholder:text-foreground/20"
                                         placeholder="Your name"
                                     />
                                 </div>
@@ -104,9 +140,10 @@ export function Contact() {
                                     <input
                                         type="email"
                                         id="email"
+                                        name="email"
                                         required
                                         suppressHydrationWarning
-                                        className="w-full bg-foreground/[0.04] border border-foreground/10 rounded-xl px-4 py-3.5 text-foreground text-sm focus:outline-none focus:border-primary-500/50 focus:ring-2 focus:ring-primary-500/20 transition-all placeholder:text-foreground/20"
+                                        className="w-full bg-foreground/[0.04] border border-neutral-200 dark:border-neutral-800/60 rounded-xl px-4 py-3.5 text-foreground text-sm focus:outline-none focus:border-primary-500/50 focus:ring-2 focus:ring-primary-500/20 transition-all placeholder:text-foreground/20"
                                         placeholder="email@example.com"
                                     />
                                 </div>
@@ -117,9 +154,10 @@ export function Contact() {
                                 <input
                                     type="text"
                                     id="subject"
+                                    name="subject"
                                     required
                                     suppressHydrationWarning
-                                    className="w-full bg-foreground/[0.04] border border-foreground/10 rounded-xl px-4 py-3.5 text-foreground text-sm focus:outline-none focus:border-primary-500/50 focus:ring-2 focus:ring-primary-500/20 transition-all placeholder:text-foreground/20"
+                                    className="w-full bg-foreground/[0.04] border border-neutral-200 dark:border-neutral-800/60 rounded-xl px-4 py-3.5 text-foreground text-sm focus:outline-none focus:border-primary-500/50 focus:ring-2 focus:ring-primary-500/20 transition-all placeholder:text-foreground/20"
                                     placeholder="What's this about?"
                                 />
                             </div>
@@ -128,13 +166,20 @@ export function Contact() {
                                 <label htmlFor="message" className="text-xs font-semibold text-foreground/50 uppercase tracking-wider">Message</label>
                                 <textarea
                                     id="message"
+                                    name="message"
                                     required
                                     suppressHydrationWarning
                                     rows={4}
-                                    className="w-full bg-foreground/[0.04] border border-foreground/10 rounded-xl px-4 py-3.5 text-foreground text-sm focus:outline-none focus:border-primary-500/50 focus:ring-2 focus:ring-primary-500/20 transition-all resize-none placeholder:text-foreground/20"
+                                    className="w-full bg-foreground/[0.04] border border-neutral-200 dark:border-neutral-800/60 rounded-xl px-4 py-3.5 text-foreground text-sm focus:outline-none focus:border-primary-500/50 focus:ring-2 focus:ring-primary-500/20 transition-all resize-none placeholder:text-foreground/20"
                                     placeholder="Tell me about your project..."
                                 />
                             </div>
+
+                            {error && (
+                                <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm text-center">
+                                    {error}
+                                </div>
+                            )}
 
                             <button
                                 type="submit"
@@ -147,8 +192,6 @@ export function Contact() {
                                         <div className="w-4 h-4 border-2 border-background/30 border-t-background rounded-full animate-spin" />
                                         Sending...
                                     </span>
-                                ) : isSubmitted ? (
-                                    <span className="flex items-center gap-2">✓ Message Sent Successfully!</span>
                                 ) : (
                                     <>
                                         Send Message
@@ -158,20 +201,100 @@ export function Contact() {
                             </button>
                         </form>
 
-                        {/* Success overlay */}
+                        {/* Premium Success Overlay */}
                         {isSubmitted && (
                             <motion.div
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                className="absolute inset-0 bg-background/95 backdrop-blur-md rounded-[1.5rem] flex flex-col items-center justify-center z-20"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.3 }}
+                                className="absolute inset-0 bg-white/40 dark:bg-black/70 backdrop-blur-md rounded-[1.5rem] flex items-center justify-center z-20"
                             >
-                                <div className="w-16 h-16 rounded-2xl bg-foreground/10 flex items-center justify-center mb-5">
-                                    <Send size={26} className="text-primary-500" />
-                                </div>
-                                <h3 className="text-xl font-semibold mb-2 text-foreground">Thank You!</h3>
-                                <p className="text-foreground/50 text-sm text-center px-8">
-                                    Your message has been received. I&apos;ll respond shortly.
-                                </p>
+                                {/* Centered glass card box */}
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.85, y: 20 }}
+                                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                                    transition={{ type: "spring", stiffness: 250, damping: 20, delay: 0.15 }}
+                                    className="relative bg-white dark:bg-[#0c120c] border border-black/5 dark:border-white/10 rounded-2xl px-10 py-12 flex flex-col items-center max-w-sm w-full mx-4 overflow-hidden success-popup-card"
+                                >
+                                    {/* Radial glow inside card */}
+                                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                        <div className="w-[250px] h-[250px] rounded-full bg-primary-500/8 blur-[80px]" />
+                                    </div>
+
+                                    {/* Animated floating particles */}
+                                    {[...Array(6)].map((_, i) => (
+                                        <motion.div
+                                            key={i}
+                                            initial={{ opacity: 0, y: 20, scale: 0 }}
+                                            animate={{
+                                                opacity: [0, 0.6, 0],
+                                                y: [20, -60 - i * 15],
+                                                scale: [0, 1, 0.5],
+                                            }}
+                                            transition={{
+                                                duration: 2,
+                                                delay: 0.4 + i * 0.15,
+                                                ease: "easeOut",
+                                            }}
+                                            className="absolute w-1.5 h-1.5 rounded-full bg-primary-400"
+                                            style={{
+                                                left: `${25 + i * 10}%`,
+                                                top: "50%",
+                                            }}
+                                        />
+                                    ))}
+
+                                    {/* Animated checkmark circle */}
+                                    <motion.div
+                                        initial={{ scale: 0, rotate: -180 }}
+                                        animate={{ scale: 1, rotate: 0 }}
+                                        transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.25 }}
+                                        className="relative mb-6 z-10"
+                                    >
+                                        {/* Pulsing ring */}
+                                        <motion.div
+                                            animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0, 0.3] }}
+                                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                                            className="absolute -inset-3 rounded-full border-2 border-primary-500/30"
+                                        />
+                                        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center shadow-[0_0_40px_rgba(34,197,94,0.25)]">
+                                            <motion.svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                className="w-10 h-10"
+                                            >
+                                                <motion.path
+                                                    d="M5 13l4 4L19 7"
+                                                    stroke="white"
+                                                    strokeWidth={2.5}
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    initial={{ pathLength: 0 }}
+                                                    animate={{ pathLength: 1 }}
+                                                    transition={{ duration: 0.5, delay: 0.5 }}
+                                                />
+                                            </motion.svg>
+                                        </div>
+                                    </motion.div>
+
+                                    {/* Text */}
+                                    <motion.h3
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.6 }}
+                                        className="text-2xl font-serif font-semibold mb-2 text-foreground tracking-tight relative z-10"
+                                    >
+                                        Message Sent!
+                                    </motion.h3>
+                                    <motion.p
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.75 }}
+                                        className="text-foreground/50 text-sm text-center max-w-xs font-light leading-relaxed relative z-10"
+                                    >
+                                        Thank you for reaching out. I&apos;ll get back to you as soon as possible.
+                                    </motion.p>
+                                </motion.div>
                             </motion.div>
                         )}
                     </motion.div>

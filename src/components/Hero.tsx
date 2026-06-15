@@ -147,7 +147,7 @@ export function Hero() {
                         className="inline-flex items-center gap-3 px-6 py-2.5 mb-10 rounded-full border border-foreground/10 bg-foreground/5 backdrop-blur-md text-foreground/80 text-sm font-medium tracking-widest uppercase"
                     >
                         <Sparkles size={14} className="animate-pulse text-primary-500" />
-                        Full Stack Developer • IT Student
+                        Full Stack Developer
                     </motion.div>
 
                     {/* Massive striking name */}

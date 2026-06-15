@@ -41,7 +41,7 @@ export function About() {
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,theme(colors.foreground/2%)_0%,transparent_100%)] pointer-events-none" />
 
             <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
-                
+
                 {/* Header with plenty of space from the navbar */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ export function About() {
 
                 {/* Main Split Profile Section */}
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start mb-32">
-                    
+
                     {/* Left Column: Profile Card & Quick Stats */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
@@ -80,25 +80,25 @@ export function About() {
                             />
                             {/* Inner gradient overlay */}
                             <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-                            
+
                             {/* Available Badge */}
                             <div className="absolute bottom-6 left-6">
-                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/60 backdrop-blur-md border border-foreground/15 text-xs font-semibold text-foreground tracking-wide">
-                                    <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" /> 
+                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-xs font-semibold text-white tracking-wide">
+                                    <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
                                     Available for work
                                 </div>
                             </div>
                         </div>
 
-                        {/* Integrated Minimalist Stats */}
-                        <div className="grid grid-cols-2 gap-6 w-full mt-10 py-6 border-y border-foreground/10">
-                            <div className="text-center border-r border-foreground/10 pr-6">
-                                <p className="text-4xl md:text-5xl font-serif font-medium text-foreground">4+</p>
-                                <p className="text-[10px] text-foreground/45 uppercase tracking-[0.25em] font-semibold mt-1">Years Coding</p>
+                        {/* Integrated Stats Card */}
+                        <div className="glass-card w-full mt-10 p-6 md:p-8 flex justify-around divide-x divide-foreground/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                            <div className="flex-1 text-center pr-4 flex flex-col justify-center items-center">
+                                <p className="text-4xl md:text-5xl font-serif font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600">4+</p>
+                                <p className="text-[10px] text-foreground/45 uppercase tracking-[0.2em] font-semibold mt-1.5">Years Coding</p>
                             </div>
-                            <div className="text-center pl-6">
-                                <p className="text-4xl md:text-5xl font-serif font-medium text-foreground">16+</p>
-                                <p className="text-[10px] text-foreground/45 uppercase tracking-[0.25em] font-semibold mt-1">Technologies</p>
+                            <div className="flex-1 text-center pl-4 flex flex-col justify-center items-center">
+                                <p className="text-4xl md:text-5xl font-serif font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600">16+</p>
+                                <p className="text-[10px] text-foreground/45 uppercase tracking-[0.2em] font-semibold mt-1.5">Technologies</p>
                             </div>
                         </div>
                     </motion.div>
@@ -120,13 +120,16 @@ export function About() {
                             Crafting clean code and <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600">premium interfaces.</span>
                         </h3>
-                        
+
                         <div className="space-y-6 text-foreground/75 text-sm md:text-base leading-relaxed font-light mb-10">
                             <p>
-                                I am an IT student at the **University of San Carlos** in Cebu, Philippines. My work is driven by a deep curiosity for solving intricate engineering problems while keeping a sharp eye on pixel-perfect UI execution.
+                                I am a fresh Information Technology graduate from the University of San Carlos in Cebu, Philippines, with hands-on experience in full-stack web and mobile application development using modern JavaScript frameworks. My work is driven by a deep curiosity for solving intricate engineering problems while keeping a sharp eye on pixel-perfect UI execution.
                             </p>
                             <p>
-                                I combine modern web architectures like React, TypeScript, and Next.js with layout flow systems to build digital products that are not only scalable and fast, but visually stunning and interactive.
+                                I specialize in building scalable systems using React, Next.js, Node.js, and multiple database technologies. Throughout my journey, I have developed real-world platforms including event management systems, mobile applications, and interactive 3D web portfolios.
+                            </p>
+                            <p>
+                                With a strong foundation in software engineering principles, networking (CCNA), and cybersecurity (CyberOps), I am equipped to design robust, secure, and highly performant digital environments.
                             </p>
                         </div>
 
@@ -182,7 +185,7 @@ export function About() {
                         </h3>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {expertise.map((item, index) => (
                             <motion.div
                                 key={index}
@@ -190,21 +193,21 @@ export function About() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="relative flex flex-col group lg:border-l lg:border-foreground/10 lg:pl-8 first:border-0 first:pl-0"
+                                className="glass-card p-6 flex flex-col group"
                             >
-                                {/* Index Number Overlay */}
-                                <div className="text-5xl font-serif text-primary-500/15 group-hover:text-primary-500/40 transition-colors duration-300 font-semibold mb-4 leading-none select-none">
-                                    {item.num}
-                                </div>
-
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className="w-8 h-8 rounded-lg bg-foreground/5 flex items-center justify-center group-hover:bg-primary-500/10 group-hover:scale-105 transition-all duration-300 shrink-0">
+                                {/* Index Number & Icon Row */}
+                                <div className="flex justify-between items-start mb-6">
+                                    <div className="w-10 h-10 rounded-xl bg-foreground/5 flex items-center justify-center group-hover:bg-primary-500/10 group-hover:scale-105 transition-all duration-300 shrink-0">
                                         {item.icon}
                                     </div>
-                                    <h4 className="text-base font-semibold text-foreground tracking-tight group-hover:text-primary-400 transition-colors duration-300">
-                                        {item.title}
-                                    </h4>
+                                    <div className="text-3xl font-serif text-primary-500/15 group-hover:text-primary-500/40 transition-colors duration-300 font-semibold leading-none select-none">
+                                        {item.num}
+                                    </div>
                                 </div>
+
+                                <h4 className="text-base font-semibold text-foreground tracking-tight group-hover:text-primary-400 transition-colors duration-300 mb-3">
+                                    {item.title}
+                                </h4>
 
                                 <p className="text-foreground/50 text-xs md:text-sm font-light leading-relaxed">
                                     {item.description}

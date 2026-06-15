@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, ExternalLink, ShieldCheck } from "lucide-react";
+import { Award, ExternalLink, ShieldCheck, Code, Sparkles } from "lucide-react";
 
 export function Certificates() {
     const certificates = [
@@ -28,6 +28,30 @@ export function Certificates() {
             icon: <Award size={22} className="text-primary-400" />,
             image: "https://images.credly.com/images/f4ccdba9-dd65-4349-baad-8f05df116443/linkedin_thumb_CCNASRWE__1_.png",
             description: "The earner has a foundation in switching operations, wired and wireless LAN configuration using security best practices, redundancy protocols, and developed problem-solving skills.",
+        },
+        {
+            title: "Creative Web Design",
+            issuer: "Call Center Academy",
+            credentialUrl: "/certificates/creative_web_design.png",
+            icon: <Code size={22} className="text-primary-400" />,
+            image: "/certificates/creative_web_design.png",
+            description: "Completed 102 hours of training covering HTML structure, form design, CSS styling, responsive layouts, positioning, transforms, transitions, and web animations.",
+        },
+        {
+            title: "AI Experience @ Global City",
+            issuer: "CrownTrust / Vietnam Is Awesome / InterEdu",
+            credentialUrl: "/certificates/ai_experience.png",
+            icon: <Sparkles size={22} className="text-primary-400" />,
+            image: "/certificates/ai_experience.png",
+            description: "Demonstrated engagement in AI-driven problem solving and collaborative innovation at Ho Chi Minh City, Vietnam.",
+        },
+        {
+            title: "Tech, AI & Career Readiness Program - Vietnam Immersion",
+            issuer: "Saigon Business School & Viet My College",
+            credentialUrl: "/certificates/tech_ai_readiness_vietnam.png",
+            icon: <Award size={22} className="text-primary-400" />,
+            image: "/certificates/tech_ai_readiness_vietnam.png",
+            description: "Recognized for active participation in the Tech, AI & Career Readiness Program - Vietnam Immersion, organized in collaboration with University of San Carlos (USC).",
         }
     ];
 
