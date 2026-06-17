@@ -109,7 +109,7 @@ export function Experiences() {
                                 </div>
 
                                 {/* Content Card */}
-                                <div className={`w-full md:w-1/2 ml-16 md:ml-0 ${
+                                <div className={`w-[calc(100%-4rem)] md:w-1/2 ml-16 md:ml-0 ${
                                     index % 2 === 0 ? "md:pl-12" : "md:pr-12 md:text-right"
                                 }`}>
                                     {/* Timeline Glass Card */}

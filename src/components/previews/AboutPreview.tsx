@@ -39,7 +39,7 @@ export function AboutPreview() {
                                 fill
                                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-background/20" />
+
                             <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6">
                                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-xs font-medium text-white">
                                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> Available for work

@@ -20,6 +20,29 @@ const cinzel = Cinzel({
   subsets: ["latin"],
 });
 
+export const metadata: Metadata = {
+  title: "Shawn Ryan",
+  description: "Full Stack Developer — Crafting high-performance software solutions with an uncompromising passion for clean architecture and state-of-the-art design.",
+  openGraph: {
+    title: "Shawn Ryan",
+    description: "Full Stack Developer — Crafting high-performance software solutions with clean architecture and premium design.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Shawn Ryan Nacario — Full Stack Developer",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shawn Ryan",
+    description: "Full Stack Developer — Crafting high-performance software solutions with clean architecture and premium design.",
+    images: ["/og-image.png"],
+  },
+};
 
 export default function RootLayout({
   children,

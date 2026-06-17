@@ -7,6 +7,7 @@ export interface Project {
   githubUrl: string;
   liveUrl: string;
   objectFit?: "cover" | "contain";
+  bgColor?: string;
 }
 
 export const projects: Project[] = [
@@ -24,11 +25,22 @@ export const projects: Project[] = [
     title: "Shawn Ryan",
     subtitle: "Creative Personal Portfolio",
     description: "A premium personal portfolio website showcasing software engineering craft, clean design, and smooth animations. Optimized for fast rendering and fluid navigation.",
-    image: "/projects/shawn-ryan.png",
+    image: "/projects/portfolio.png",
     tags: ["Next.js", "Framer Motion", "Tailwind CSS"],
     githubUrl: "https://github.com/AquaDarknessMegumin/Portfolio",
     liveUrl: "https://srn-portfolio-zeta.vercel.app/",
     objectFit: "cover",
+  },
+  {
+    title: "G-Fitness",
+    subtitle: "Gym & Fitness Mobile App",
+    description: "A comprehensive workout and fitness tracking mobile application built with React Native and Expo. It features exercise logging, history tracking with an interactive calendar, and personalized progress dashboard.",
+    image: "/projects/g-fitness-android.png",
+    tags: ["React Native", "Expo", "Mobile App", "Fitness Tracker"],
+    githubUrl: "https://github.com/AquaDarknessMegumin/Gym-Mobile-App",
+    liveUrl: "https://github.com/AquaDarknessMegumin/Gym-Mobile-App",
+    objectFit: "contain",
+    bgColor: "bg-gradient-to-br from-[#1c183a] to-[#0c0a1b]",
   },
   {
     title: "DentEase",

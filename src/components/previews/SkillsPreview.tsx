@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaJava } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss, SiTypescript, SiJavascript, SiFramer, SiMongodb, SiPostgresql, SiPhp, SiC, SiMysql, SiSupabase, SiVercel, SiEslint } from "react-icons/si";
+import { SiNextdotjs, SiTailwindcss, SiTypescript, SiJavascript, SiFramer, SiMongodb, SiPostgresql, SiPhp, SiC, SiSharp, SiPython, SiMysql, SiSupabase, SiVercel, SiEslint } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 
 const AceternityIcon = ({ size = 28 }: { size?: number }) => (
@@ -30,6 +30,8 @@ export function SkillsPreview() {
         { name: "Node.js", icon: <FaNodeJs size={28} className="text-[#339933]" /> },
         { name: "PHP", icon: <SiPhp size={28} className="text-[#777BB4]" /> },
         { name: "Java", icon: <FaJava size={28} className="text-[#007396]" /> },
+        { name: "C#", icon: <SiSharp size={28} className="text-[#239120]" /> },
+        { name: "Python", icon: <SiPython size={28} className="text-[#3776AB]" /> },
         { name: "C", icon: <SiC size={28} className="text-[#A8B9CC]" /> },
         { name: "MySQL", icon: <SiMysql size={28} className="text-[#4479A1]" /> },
         { name: "PostgreSQL", icon: <SiPostgresql size={28} className="text-[#336791]" /> },

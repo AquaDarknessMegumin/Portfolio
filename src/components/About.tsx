@@ -79,7 +79,7 @@ export function About() {
                                 className="object-cover group-hover:scale-102 transition-transform duration-700 ease-out"
                             />
                             {/* Inner gradient overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+
 
                             {/* Available Badge */}
                             <div className="absolute bottom-6 left-6">

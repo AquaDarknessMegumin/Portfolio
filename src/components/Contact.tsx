@@ -88,7 +88,7 @@ export function Contact() {
                             </div>
                             <div>
                                 <h4 className="text-sm font-medium mb-1 text-foreground">Email Me</h4>
-                                <p className="text-foreground/50 text-sm font-light">shawnryannacario@gmail.com</p>
+                                <p className="dark:text-white text-neutral-700 text-sm font-light">shawnryannacario@gmail.com</p>
                             </div>
                         </a>
 
@@ -98,7 +98,7 @@ export function Contact() {
                             </div>
                             <div>
                                 <h4 className="text-sm font-medium mb-1 text-foreground">Call Me</h4>
-                                <p className="text-foreground/50 text-sm font-light">0927 223 2334</p>
+                                <p className="dark:text-white text-neutral-700 text-sm font-light">0927 223 2334</p>
                             </div>
                         </a>
 
@@ -108,7 +108,7 @@ export function Contact() {
                             </div>
                             <div>
                                 <h4 className="text-sm font-medium mb-1 text-foreground">Location</h4>
-                                <p className="text-foreground/50 text-sm font-light">Lapu-Lapu City, Cebu</p>
+                                <p className="dark:text-white text-neutral-700 text-sm font-light">Lapu-Lapu City, Cebu</p>
                             </div>
                         </div>
                     </motion.div>
