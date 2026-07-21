@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaJava } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss, SiTypescript, SiJavascript, SiFramer, SiMongodb, SiPostgresql, SiPhp, SiC, SiMysql, SiSupabase, SiVercel, SiEslint } from "react-icons/si";
+import { SiNextdotjs, SiTailwindcss, SiTypescript, SiJavascript, SiFramer, SiMongodb, SiPostgresql, SiPhp, SiC, SiSharp, SiPython, SiMysql, SiSupabase, SiVercel, SiEslint } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 
 const AceternityIcon = ({ size = 32 }: { size?: number }) => (
@@ -36,6 +36,8 @@ export function Skills() {
                 { name: "Node.js", icon: <FaNodeJs size={32} className="text-[#339933]" />, color: "#339933" },
                 { name: "PHP", icon: <SiPhp size={32} className="text-[#777BB4]" />, color: "#777BB4" },
                 { name: "Java", icon: <FaJava size={32} className="text-[#007396]" />, color: "#007396" },
+                { name: "C#", icon: <SiSharp size={32} className="text-[#239120]" />, color: "#239120" },
+                { name: "Python", icon: <SiPython size={32} className="text-[#3776AB]" />, color: "#3776AB" },
                 { name: "C", icon: <SiC size={32} className="text-[#A8B9CC]" />, color: "#A8B9CC" },
             ]
         },
@@ -46,7 +48,7 @@ export function Skills() {
                 { name: "PostgreSQL", icon: <SiPostgresql size={32} className="text-[#336791]" />, color: "#336791" },
                 { name: "MongoDB", icon: <SiMongodb size={32} className="text-[#47A248]" />, color: "#47A248" },
                 { name: "Supabase", icon: <SiSupabase size={32} className="text-[#3ECF8E]" />, color: "#3ECF8E" },
-                { name: "Git + GitHub/GitLab", icon: <FaGitAlt size={32} className="text-[#F05032]" />, color: "#F05032" },
+                { name: "Git + GitHub / GitLab", icon: <FaGitAlt size={32} className="text-[#F05032]" />, color: "#F05032" },
                 { name: "Vercel", icon: <SiVercel size={32} className="text-foreground" />, color: "#FFFFFF" },
                 { name: "ESLint", icon: <SiEslint size={32} className="text-[#4B32C3]" />, color: "#4B32C3" },
                 { name: "VS Code", icon: <VscVscode size={32} className="text-[#007ACC]" />, color: "#007ACC" },

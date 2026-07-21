@@ -33,7 +33,7 @@ function AnimatedCounter({ value, showPlus = true }: { value: number; showPlus?:
     }, [motionValue, value, hasAnimated]);
 
     return (
-        <span ref={ref} className="text-3xl md:text-4xl font-serif font-bold tracking-tighter text-foreground">
+        <span ref={ref} className="text-xl sm:text-3xl md:text-4xl font-serif font-bold tracking-tighter text-foreground">
             <motion.span>{rounded}</motion.span>{showPlus && "+"}
         </span>
     );
@@ -216,25 +216,25 @@ export function Hero() {
                 transition={{ delay: 3.2, duration: 0.8 }}
                 className="relative z-10 w-full px-6"
             >
-                <div className="container mx-auto max-w-4xl grid grid-cols-3 gap-4 pb-8">
+                <div className="container mx-auto max-w-4xl grid grid-cols-3 gap-2 sm:gap-4 pb-8">
                     {[
-                        { value: 4, label: "Years", sublabel: "Coding", icon: <Code2 size={22} className="text-primary-400" />, showPlus: true },
-                        { value: 16, label: "Technologies", sublabel: "Used", icon: <MonitorSmartphone size={22} className="text-primary-400" />, showPlus: true },
-                        { value: 3, label: "Projects", sublabel: "Built", icon: <FolderKanban size={22} className="text-primary-400" />, showPlus: false },
+                        { value: 4, label: "Years", sublabel: "Coding", icon: <Code2 className="text-primary-400 w-4 h-4 sm:w-[22px] sm:h-[22px]" />, showPlus: true },
+                        { value: 16, label: "Technologies", sublabel: "Used", icon: <MonitorSmartphone className="text-primary-400 w-4 h-4 sm:w-[22px] sm:h-[22px]" />, showPlus: true },
+                        { value: 3, label: "Projects", sublabel: "Built", icon: <FolderKanban className="text-primary-400 w-4 h-4 sm:w-[22px] sm:h-[22px]" />, showPlus: false },
                     ].map((stat, i) => (
                         <div
                             key={i}
-                            className="glass-card px-5 py-5 flex items-center gap-4 group relative overflow-hidden"
+                            className="glass-card px-2 py-3 sm:px-5 sm:py-5 flex flex-col sm:flex-row items-center sm:items-center gap-1.5 sm:gap-4 group relative overflow-hidden"
                         >
                             {/* Subtle corner glow */}
                             <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                            <div className="w-11 h-11 rounded-xl bg-primary-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                            <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-primary-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                                 {stat.icon}
                             </div>
-                            <div className="relative z-10">
+                            <div className="relative z-10 text-center sm:text-left">
                                 <AnimatedCounter value={stat.value} showPlus={stat.showPlus} />
-                                <p className="text-[10px] md:text-xs text-foreground/40 tracking-[0.15em] uppercase font-medium leading-tight mt-0.5">
+                                <p className="text-[8px] sm:text-[10px] md:text-xs text-foreground/40 tracking-[0.15em] uppercase font-medium leading-tight mt-0.5">
                                     {stat.label}<br />{stat.sublabel}
                                 </p>
                             </div>
@@ -243,22 +243,6 @@ export function Hero() {
                 </div>
             </motion.div>
 
-
-            {/* Scroll indicator — center bottom */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 3.8 }}
-                className="absolute bottom-20 left-1/2 -translate-x-1/2 z-10 lg:hidden"
-            >
-                <motion.div
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-6 h-10 rounded-full border-2 border-foreground/20 flex items-start justify-center p-1.5 backdrop-blur-sm"
-                >
-                    <div className="w-1 h-2 bg-foreground/60 rounded-full" />
-                </motion.div>
-            </motion.div>
         </section>
     );
 }
