@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { ArrowRight, Sparkles, Code2, MonitorSmartphone, FolderKanban } from "lucide-react";
+import { ArrowRight, Sparkles, Code2, MonitorSmartphone, FolderKanban, Download } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Magnetic } from "./Magnetic";
@@ -185,6 +185,16 @@ export function Hero() {
                                 Explore Portfolio
                                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
                             </Link>
+                        </Magnetic>
+                        <Magnetic>
+                            <a
+                                href="/Shawn Resume.pdf"
+                                download="Shawn_Resume.pdf"
+                                className="group flex items-center gap-3 px-7 py-3.5 rounded-full font-medium text-sm border border-foreground/15 text-foreground hover:border-primary-500/30 hover:bg-primary-500/5 transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm"
+                            >
+                                <Download className="group-hover:translate-y-0.5 transition-transform" size={16} />
+                                Download Resume
+                            </a>
                         </Magnetic>
                         <Magnetic>
                             <Link

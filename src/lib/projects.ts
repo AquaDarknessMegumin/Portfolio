@@ -24,7 +24,7 @@ export const projects: Project[] = [
     title: "Shawn Ryan",
     subtitle: "Creative Personal Portfolio",
     description: "A premium personal portfolio website showcasing software engineering craft, clean design, and smooth animations. Optimized for fast rendering and fluid navigation.",
-    image: "/projects/shawn-ryan.png",
+    image: "/projects/portfolio.png",
     tags: ["Next.js", "Framer Motion", "Tailwind CSS"],
     githubUrl: "https://github.com/AquaDarknessMegumin/Portfolio",
     liveUrl: "https://srn-portfolio-zeta.vercel.app/",
