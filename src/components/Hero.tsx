@@ -188,8 +188,8 @@ export function Hero() {
                         </Magnetic>
                         <Magnetic>
                             <a
-                                href="/Resume.pdf"
-                                download="Resume.pdf"
+                                href="/Shawn_Ryan_Nacario_Resume.pdf"
+                                download="Shawn_Ryan_Nacario_Resume.pdf"
                                 className="group flex items-center gap-3 px-7 py-3.5 rounded-full font-medium text-sm border border-foreground/15 text-foreground hover:border-primary-500/30 hover:bg-primary-500/5 transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm"
                             >
                                 <Download className="group-hover:translate-y-0.5 transition-transform" size={16} />
