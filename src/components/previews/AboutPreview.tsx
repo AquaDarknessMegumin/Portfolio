@@ -51,10 +51,10 @@ export function AboutPreview() {
                         <div className="w-full md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
                             <p className="text-primary-500 text-xs font-bold tracking-widest uppercase mb-4">Full Stack Developer</p>
                             <h3 className="text-2xl md:text-3xl font-serif font-medium mb-4 text-foreground leading-snug tracking-tight">
-                                I am a fresh IT graduate bridging the gap between complex problems and elegant, premium solutions.
+                                I am an IT student bridging the gap between complex problems and elegant, premium solutions.
                             </h3>
                             <p className="text-foreground/60 text-sm md:text-base leading-relaxed font-light mb-8">
-                                Having recently graduated from the University of San Carlos, I have hands-on experience developing real-world platforms, event systems, and mobile apps. My work is powered by a strong foundation in software engineering, networking (CCNA), and cybersecurity (CyberOps).
+                                Currently pursuing my Bachelor of Science in Information Technology at the University of San Carlos, I have hands-on experience developing real-world platforms, event systems, and mobile apps. My work is powered by a strong foundation in software engineering, networking (CCNA), and cybersecurity (CyberOps).
                             </p>
 
                             {/* Quick info chips */}

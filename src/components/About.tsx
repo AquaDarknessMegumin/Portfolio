@@ -123,13 +123,13 @@ export function About() {
 
                         <div className="space-y-6 text-foreground/75 text-sm md:text-base leading-relaxed font-light mb-10">
                             <p>
-                                I am a fresh Information Technology graduate from the University of San Carlos in Cebu, Philippines, with hands-on experience in full-stack web and mobile application development using modern JavaScript frameworks. My work is driven by a deep curiosity for solving intricate engineering problems while keeping a sharp eye on pixel-perfect UI execution.
+                                I am currently pursuing a Bachelor of Science in Information Technology at the University of San Carlos in Cebu, Philippines, with hands-on experience in full-stack web and mobile application development using modern JavaScript frameworks. My work is driven by a deep curiosity for solving intricate engineering problems while maintaining a sharp eye for pixel-perfect UI execution.
                             </p>
                             <p>
-                                I specialize in building scalable systems using React, Next.js, Node.js, and multiple database technologies. Throughout my journey, I have developed real-world platforms including event management systems, mobile applications, and interactive 3D web portfolios.
+                                I specialize in building scalable systems using React, Next.js, Node.js, and multiple database technologies. Throughout my academic journey, I have developed real-world platforms, including event management systems, mobile applications, and interactive 3D web portfolios.
                             </p>
                             <p>
-                                With a strong foundation in software engineering principles, networking (CCNA), and cybersecurity (CyberOps), I am equipped to design robust, secure, and highly performant digital environments.
+                                With a strong foundation in software engineering principles, networking (CCNA), and cybersecurity (CyberOps), I continue to strengthen my technical expertise while building robust, secure, and high-performance digital solutions.
                             </p>
                         </div>
 

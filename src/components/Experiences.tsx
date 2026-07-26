@@ -9,11 +9,11 @@ export function Experiences() {
             id: 1,
             title: "Bachelor of Science in Information Technology",
             organization: "University of San Carlos",
-            date: "2022 - 2026",
+            date: "2022 - Present",
             description: "Focused on full-stack software development, database management systems, and modern web architectures. Actively engaged in Tech, AI & Career Readiness programs.",
             icon: <GraduationCap size={20} className="text-primary-400" />,
             highlight: true,
-            status: "Graduated",
+            status: "Currently Pursuing",
         },
         {
             id: 2,
