@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { Magnetic } from "./Magnetic";
 import { TextReveal } from "./TextReveal";
 import { Particles } from "./Particles";
+import { projects } from "@/lib/projects";
 
 function AnimatedCounter({ value, showPlus = true }: { value: number; showPlus?: boolean }) {
     const ref = useRef<HTMLSpanElement>(null);
@@ -220,7 +221,7 @@ export function Hero() {
                     {[
                         { value: 4, label: "Years", sublabel: "Coding", icon: <Code2 className="text-primary-400 w-4 h-4 sm:w-[22px] sm:h-[22px]" />, showPlus: true },
                         { value: 16, label: "Technologies", sublabel: "Used", icon: <MonitorSmartphone className="text-primary-400 w-4 h-4 sm:w-[22px] sm:h-[22px]" />, showPlus: true },
-                        { value: 3, label: "Projects", sublabel: "Built", icon: <FolderKanban className="text-primary-400 w-4 h-4 sm:w-[22px] sm:h-[22px]" />, showPlus: false },
+                        { value: projects.length, label: "Projects", sublabel: "Built", icon: <FolderKanban className="text-primary-400 w-4 h-4 sm:w-[22px] sm:h-[22px]" />, showPlus: false },
                     ].map((stat, i) => (
                         <div
                             key={i}
